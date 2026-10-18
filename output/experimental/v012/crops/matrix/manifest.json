@@ -1,0 +1,283 @@
+{
+  "version": "0.1.2",
+  "release": "DeepZoom Astro Engine V0.1.2 Precision & Fidelity",
+  "scale": 4,
+  "base_model": "remacri-4x",
+  "blend_weight": 0.5,
+  "single_weight_contract": true,
+  "total_crops": 8,
+  "crops": [
+    {
+      "crop_id": 1,
+      "crop_name": "crop1_event_horizon",
+      "crop_title": "Event Horizon (Shadow Inner Boundary)",
+      "description": "Inner shadow boundary and strong gravitational deflection zone.",
+      "coordinates": {
+        "x0": 1308,
+        "x1": 1564,
+        "y0": 1760,
+        "y1": 2016,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 52.17,
+        "ssim": 0.9989,
+        "mean_absolute_diff": 0.117,
+        "max_absolute_diff": 29.0,
+        "modified_pixels": 14478,
+        "modified_pct": 22.09
+      },
+      "files": {
+        "pure_remacri": "crop1_event_horizon_01_pure_remacri.png",
+        "deepzoom_v012": "crop1_event_horizon_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop1_event_horizon_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop1_event_horizon_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "a4687c182bf77553b05a72a57e425a1faeacd063b1494383f771f4c9b8fdc2a0",
+        "deepzoom_v012_sha256": "0e69d8406f25c8698b998eef595a1ce49eb867d92ecfe036bcd4ff69d79f2fc8",
+        "diff_sha256": "6a1258f26c42a04a7e4eb04f78c0413cf5d66382597ed8c2e6b5776f7bb49e72",
+        "panel_sha256": "cdab6b73aeb4e879b788fb5dc939d0d509a76687acbe7ff7400fdfaa9c760b6f"
+      }
+    },
+    {
+      "crop_id": 2,
+      "crop_name": "crop2_accretion_disk",
+      "crop_title": "Accretion Disk Edge & Photon Ring",
+      "description": "Bright relativistic photon ring and upper accretion disk boundary.",
+      "coordinates": {
+        "x0": 1308,
+        "x1": 1564,
+        "y0": 1560,
+        "y1": 1816,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 44.5,
+        "ssim": 0.9946,
+        "mean_absolute_diff": 0.3718,
+        "max_absolute_diff": 26.0,
+        "modified_pixels": 10671,
+        "modified_pct": 16.28
+      },
+      "files": {
+        "pure_remacri": "crop2_accretion_disk_01_pure_remacri.png",
+        "deepzoom_v012": "crop2_accretion_disk_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop2_accretion_disk_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop2_accretion_disk_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "731e8ac278c96482a039c9cf3300fb421c64c4ad5a032b37efb68435c0d7b8d0",
+        "deepzoom_v012_sha256": "525b1d2e78cc9180818b52b8b6442eb87dd3f6cc061e9efe2f3d70e2f42ab122",
+        "diff_sha256": "33037ee7e2a8c38a1afcb39f09b9dbb5f07f71487e19d90fd5129052081612d5",
+        "panel_sha256": "4357abe1e7520bfe24a75523014fcd480bc9c57f82a82b63f210bd3de20260ce"
+      }
+    },
+    {
+      "crop_id": 3,
+      "crop_name": "crop3_fine_filaments",
+      "crop_title": "Fine Plasma Filaments",
+      "description": "High-coherence plasma streams and directional relativistic filaments.",
+      "coordinates": {
+        "x0": 1664,
+        "x1": 1920,
+        "y0": 1408,
+        "y1": 1664,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 40.05,
+        "ssim": 0.9875,
+        "mean_absolute_diff": 0.8567,
+        "max_absolute_diff": 35.0,
+        "modified_pixels": 15990,
+        "modified_pct": 24.4
+      },
+      "files": {
+        "pure_remacri": "crop3_fine_filaments_01_pure_remacri.png",
+        "deepzoom_v012": "crop3_fine_filaments_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop3_fine_filaments_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop3_fine_filaments_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "d1f62c9bd9fb31c12c6e59fb793816faa7ffbd70ec4712748aaf82dcb299a7ec",
+        "deepzoom_v012_sha256": "50326a7a33f6d3dc504bc9f312652e98e6405cb76399ecf5225cb7b0d752bce6",
+        "diff_sha256": "6cc986b0bb1d740e442a2b12f47f6467e8509700e64db6bfdd12473058903c84",
+        "panel_sha256": "44849ee04551dfd24136ac41c7fe28cff6525e97b062c872799ef9eb8538d156"
+      }
+    },
+    {
+      "crop_id": 4,
+      "crop_name": "crop4_isolated_star",
+      "crop_title": "Isolated Point Source Star",
+      "description": "Isolated stellar point source verifying PSF symmetry, flux conservation and anti-ringing.",
+      "coordinates": {
+        "x0": 0,
+        "x1": 256,
+        "y0": 3572,
+        "y1": 3828,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 43.2,
+        "ssim": 0.997,
+        "mean_absolute_diff": 0.2011,
+        "max_absolute_diff": 85.0,
+        "modified_pixels": 4080,
+        "modified_pct": 6.23
+      },
+      "files": {
+        "pure_remacri": "crop4_isolated_star_01_pure_remacri.png",
+        "deepzoom_v012": "crop4_isolated_star_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop4_isolated_star_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop4_isolated_star_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "d6f5f5a9fec87d8862d68ab3d909ca1f1cd7f5116d867ac4a838cdbbe4823604",
+        "deepzoom_v012_sha256": "2af67a9452dffc35fe0293937c44ac9b7dd6264a561af43a790ffe0fdef7bc54",
+        "diff_sha256": "d8df67e2a2d200707733dc79cada56ed46ec77d181a5b57da8a6c5a5125fb6bd",
+        "panel_sha256": "d3ded28ccbd4b6fd86272dfec766217d2f37251205f22252eb5989caf87eba55"
+      }
+    },
+    {
+      "crop_id": 5,
+      "crop_name": "crop5_crowded_cluster",
+      "crop_title": "Crowded Star Cluster",
+      "description": "High-density stellar field verifying distinct source resolution without merging.",
+      "coordinates": {
+        "x0": 2149,
+        "x1": 2405,
+        "y0": 3309,
+        "y1": 3565,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 37.03,
+        "ssim": 0.9939,
+        "mean_absolute_diff": 0.3907,
+        "max_absolute_diff": 113.0,
+        "modified_pixels": 16089,
+        "modified_pct": 24.55
+      },
+      "files": {
+        "pure_remacri": "crop5_crowded_cluster_01_pure_remacri.png",
+        "deepzoom_v012": "crop5_crowded_cluster_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop5_crowded_cluster_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop5_crowded_cluster_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "85a9864da28dedcbb1fa85b1c4cbc6f371dd23dfd6f991946583ae0459a5264d",
+        "deepzoom_v012_sha256": "02370cd3864fd30f7aa0088eceecc0035eae433652d74a7e9a88cfd5c2870ca5",
+        "diff_sha256": "a1dd124e18abb08deff00735f999a489e1d96d3cf25741f99795159a917144a3",
+        "panel_sha256": "1e7dd4eee0e3b61806eaa7aa90ce86bd74a2ab3190e315791303847d2b6588d9"
+      }
+    },
+    {
+      "crop_id": 6,
+      "crop_name": "crop6_small_galaxy",
+      "crop_title": "Small Extended Galaxy",
+      "description": "Extended non-point source validating preservation of diffuse galactic morphology.",
+      "coordinates": {
+        "x0": 2332,
+        "x1": 2588,
+        "y0": 2697,
+        "y1": 2953,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 38.44,
+        "ssim": 0.9965,
+        "mean_absolute_diff": 0.3125,
+        "max_absolute_diff": 113.0,
+        "modified_pixels": 17770,
+        "modified_pct": 27.11
+      },
+      "files": {
+        "pure_remacri": "crop6_small_galaxy_01_pure_remacri.png",
+        "deepzoom_v012": "crop6_small_galaxy_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop6_small_galaxy_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop6_small_galaxy_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "aeef9052d8f73cfc6f2c98b42802163e81fb12984aadf8fee8f4a97001e1adb4",
+        "deepzoom_v012_sha256": "89930064d614638928724a049abeb4c47d724a38a3ca5b2264157e7a2e6014ae",
+        "diff_sha256": "2d59f36fcdffd8bcab5868c5560d11c4a2238c6355dc317f5d71713de51709b5",
+        "panel_sha256": "e799bffae08ba4c3f7cdcf30d294b0bda12590fb63b2d4a6b5a6eafb333d8095"
+      }
+    },
+    {
+      "crop_id": 7,
+      "crop_name": "crop7_faint_nebulosity",
+      "crop_title": "Faint Nebulosity & Dust",
+      "description": "Low-surface-brightness reflection gas and dust clouds preserved without black clipping.",
+      "coordinates": {
+        "x0": 2432,
+        "x1": 2688,
+        "y0": 2304,
+        "y1": 2560,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 49.37,
+        "ssim": 0.9985,
+        "mean_absolute_diff": 0.1956,
+        "max_absolute_diff": 53.0,
+        "modified_pixels": 20672,
+        "modified_pct": 31.54
+      },
+      "files": {
+        "pure_remacri": "crop7_faint_nebulosity_01_pure_remacri.png",
+        "deepzoom_v012": "crop7_faint_nebulosity_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop7_faint_nebulosity_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop7_faint_nebulosity_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "6121383827c23e04d82cd8b7b43a01bffedc584247179bc653c975edbab77c4e",
+        "deepzoom_v012_sha256": "d464dd584ed631d18499c5cd2cde0f6810f878122490dadac13a94cfef553ecb",
+        "diff_sha256": "8bb115bce3b4c4aa9e00c13e268ede380ec1b7b1ecdb83ce931e7340fb0c5faa",
+        "panel_sha256": "53530a95ac186ab775ca976f47b05a00134d82757fbe9cff8b995e20fd3754cb"
+      }
+    },
+    {
+      "crop_id": 8,
+      "crop_name": "crop8_deep_cosmic_background",
+      "crop_title": "Deep Cosmic Background",
+      "description": "Cosmic vacuum floor testing posterization suppression and smooth gradient preservation.",
+      "coordinates": {
+        "x0": 1152,
+        "x1": 1408,
+        "y0": 64,
+        "y1": 320,
+        "width": 256,
+        "height": 256
+      },
+      "metrics": {
+        "psnr_db": 47.91,
+        "ssim": 0.9986,
+        "mean_absolute_diff": 0.1693,
+        "max_absolute_diff": 93.0,
+        "modified_pixels": 19086,
+        "modified_pct": 29.12
+      },
+      "files": {
+        "pure_remacri": "crop8_deep_cosmic_background_01_pure_remacri.png",
+        "deepzoom_v012": "crop8_deep_cosmic_background_02_deepzoom_v012.png",
+        "diff_amplified_15x": "crop8_deep_cosmic_background_03_diff_amplified_15x.png",
+        "side_by_side_panel": "crop8_deep_cosmic_background_04_side_by_side_panel.png"
+      },
+      "hashes": {
+        "pure_remacri_sha256": "aa4af85fe70cf0a9d7f2b2e85607e44c58893751ef8941b977ad6aef03c2e80d",
+        "deepzoom_v012_sha256": "aa5f31fc91c07c78a1d2ee99df5b3e5b6506b67a246bb1c47cead656cc6f9686",
+        "diff_sha256": "34cc8887818babd6050a8ef41c8ccf3499c76aa9442e04dfe26f95af7443a6ec",
+        "panel_sha256": "5e0ea288b8e30b49a8c3d4f80875b40fb7cc13c5d6f42756ed8ed77bcf5c36a8"
+      }
+    }
+  ]
+}

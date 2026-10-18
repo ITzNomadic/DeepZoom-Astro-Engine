@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "version": "0.1.2",
+  "description": "AdaptiveFusion V0.1.2 Single-Weight Contract and Metric Synchronization",
+  "single_weight_contract": {
+    "linearity_ratios": {
+      "w0.50_to_1.00": 0.4989,
+      "w0.25_to_1.00": 0.2597,
+      "w0.75_to_1.00": 0.7608
+    },
+    "status": "VERIFIED_LINEAR"
+  },
+  "metric_synchronization": {
+    "effectively_modified_pixels": 5800,
+    "effectively_modified_pct": 8.85,
+    "mean_absolute_difference": 1.3367,
+    "max_absolute_difference": 66.0,
+    "p50_difference": 1.0,
+    "p90_difference": 32.0,
+    "p99_difference": 66.0,
+    "synchronization_status": "EXACT_MATCH"
+  },
+  "difference_maps": {
+    "accumulated": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\diff_maps\\test_fusion_accumulated.png",
+    "amplified_15x": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\diff_maps\\test_fusion_amplified_15x.png",
+    "star_preserve": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\diff_maps\\test_fusion_star_preserve.png",
+    "filament_guard": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\diff_maps\\test_fusion_filament_guard.png",
+    "dark_sky": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\diff_maps\\test_fusion_dark_sky.png"
+  }
+}

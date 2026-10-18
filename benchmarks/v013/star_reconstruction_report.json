@@ -1,0 +1,171 @@
+{
+  "version": "0.1.3",
+  "benchmark_name": "StarPreserve_Photometric_Lock_Controlled_Suite",
+  "timestamp": "2026-10-17 13:39:47",
+  "total_cases_evaluated": 9,
+  "results": [
+    {
+      "test_case": "case1_subpixel_drift_05px",
+      "description": "Subpixel centroid drift of 0.5 px in X",
+      "status": "IMPROVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.5,
+        "centroid_drift_after_px": 0.012,
+        "flux_error_before_pct": 0.25,
+        "flux_error_after_pct": 0.29,
+        "flux_delta_pct": 0.04,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 39.38,
+        "psnr_after_db": 65.33,
+        "psnr_gain_db": 25.96
+      }
+    },
+    {
+      "test_case": "case2_subpixel_drift_12px",
+      "description": "Subpixel centroid drift of 1.2 px diagonally (+0.8 px X, -0.9 px Y)",
+      "status": "IMPROVED",
+      "metrics": {
+        "centroid_drift_before_px": 1.206,
+        "centroid_drift_after_px": 0.044,
+        "flux_error_before_pct": 0.24,
+        "flux_error_after_pct": 0.2,
+        "flux_delta_pct": -0.04,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 31.89,
+        "psnr_after_db": 62.13,
+        "psnr_gain_db": 30.24
+      }
+    },
+    {
+      "test_case": "case3_excessive_ringing_halo",
+      "description": "Deep Gibbs ringing moat dipping 20 levels below local background",
+      "status": "IMPROVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 16.91,
+        "flux_error_after_pct": 16.91,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 11.0,
+        "min_intensity_after": 24.0,
+        "psnr_before_db": 35.67,
+        "psnr_after_db": 40.44,
+        "psnr_gain_db": 4.77
+      }
+    },
+    {
+      "test_case": "case4_split_duplicated_core",
+      "description": "Asymmetric core splitting into dual peaks",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 41.81,
+        "flux_error_after_pct": 41.81,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 32.66,
+        "psnr_after_db": 32.66,
+        "psnr_gain_db": 0.0
+      }
+    },
+    {
+      "test_case": "case5_elongated_star",
+      "description": "Artificial neural elongation (ellipticity e=0.60)",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 32.12,
+        "flux_error_after_pct": 32.12,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 29.28,
+        "psnr_after_db": 29.28,
+        "psnr_gain_db": 0.0
+      }
+    },
+    {
+      "test_case": "case6_partially_saturated_star",
+      "description": "Saturated flat-topped stellar core (clipped at 240)",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 308.61,
+        "flux_error_after_pct": 308.61,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 34.0,
+        "min_intensity_after": 34.0,
+        "psnr_before_db": 26.97,
+        "psnr_after_db": 26.97,
+        "psnr_gain_db": 0.0
+      }
+    },
+    {
+      "test_case": "case7_nearby_crowded_stars",
+      "description": "Close binary pair separated by 4.5 px",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 1.491,
+        "centroid_drift_after_px": 1.491,
+        "flux_error_before_pct": 43.32,
+        "flux_error_after_pct": 43.32,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 148.13,
+        "psnr_after_db": 148.13,
+        "psnr_gain_db": 0.0
+      }
+    },
+    {
+      "test_case": "case8_non_uniform_nebulosity",
+      "description": "Non-uniform emission nebula gradient across aperture",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 5.266,
+        "centroid_drift_after_px": 5.266,
+        "flux_error_before_pct": 625.62,
+        "flux_error_after_pct": 625.62,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 20.0,
+        "min_intensity_after": 20.0,
+        "psnr_before_db": 148.13,
+        "psnr_after_db": 148.13,
+        "psnr_gain_db": 0.0
+      }
+    },
+    {
+      "test_case": "case9_healthy_control_star",
+      "description": "Pristine healthy star for zero-regression evaluation",
+      "status": "PRESERVED",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 0.25,
+        "flux_error_after_pct": 0.25,
+        "flux_delta_pct": 0.0,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 148.13,
+        "psnr_after_db": 148.13,
+        "psnr_gain_db": 0.0
+      }
+    }
+  ],
+  "fidelity_gate_summary": {
+    "total_evaluated": 7,
+    "accepted_count": 3,
+    "rejected_count": 4,
+    "acceptance_rate_pct": 42.86,
+    "reasons_breakdown": {
+      "Accepted": 3,
+      "Rejected": 4
+    }
+  }
+}

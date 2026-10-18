@@ -1,0 +1,93 @@
+{
+  "version": "0.1.2",
+  "release": "DeepZoom Astro Engine V0.1.2",
+  "profiling_summary": {
+    "detailed_stages": {
+      "star_preserve_analysis": 1.2896,
+      "filament_guard_analysis": 255.3683,
+      "dark_sky_analysis": 0.6913,
+      "geometry_lock_verification": 48.8364,
+      "fusion_mode_baseline": 4.7451,
+      "fusion_mode_star_preserve_only": 5.6074,
+      "fusion_mode_filament_guard_only": 5.5403,
+      "fusion_mode_dark_sky_only": 5.4396,
+      "fusion_mode_all_layers": 6.2456
+    },
+    "breakdown": {
+      "gpu_ncnn_inference_seconds": 0.0,
+      "cpu_astro_postprocessing_seconds": 0.0,
+      "disk_io_seconds": 0.0,
+      "scientific_validation_seconds": 0.0,
+      "total_wall_clock_seconds": 0.0,
+      "gpu_share_pct": 0.0,
+      "cpu_post_share_pct": 0.0
+    }
+  },
+  "star_preserve": {
+    "matched_sources": 449,
+    "point_precision": 0.0518,
+    "reconstructed_stars": 304,
+    "mean_centroid_drift_px": 3.352
+  },
+  "filament_guard": {
+    "coverage_pct": 8.21,
+    "mean_coherence": 0.877,
+    "repaired_pixels": 3030212
+  },
+  "dark_sky": {
+    "flat_vacuum_coverage_pct": 21.29,
+    "faint_structure_coverage_pct": 4.69,
+    "stabilized_pixels": 2378839
+  },
+  "geometry_lock": {
+    "general_lock_passed": true,
+    "shadow_detected": true
+  },
+  "fusion_stats": {
+    "mode": "all_layers",
+    "blend_weight": 0.5,
+    "candidate_pixels": 5465323,
+    "candidate_pct": 48.912,
+    "effectively_modified_pixels": 1825594,
+    "effectively_modified_pct": 16.338,
+    "mean_absolute_difference": 0.3815,
+    "max_absolute_difference": 123.0,
+    "p50_difference": 1.0,
+    "p90_difference": 7.0,
+    "p99_difference": 25.0,
+    "active_layers": [
+      "StarPreserve",
+      "FilamentGuard",
+      "DarkSky"
+    ],
+    "per_layer_stats": {
+      "StarPreserve": {
+        "candidate_pixels": 91131,
+        "modified_pixels": 45577,
+        "mean_abs_diff": 0.0495,
+        "max_abs_diff": 114.62
+      },
+      "FilamentGuard": {
+        "candidate_pixels": 3030212,
+        "modified_pixels": 912251,
+        "mean_abs_diff": 0.2972,
+        "max_abs_diff": 71.52
+      },
+      "DarkSky": {
+        "candidate_pixels": 2378839,
+        "modified_pixels": 1316027,
+        "mean_abs_diff": 0.0404,
+        "max_abs_diff": 14.0
+      }
+    }
+  },
+  "validation_metrics": {
+    "mean_absolute_difference": 0.3815,
+    "max_absolute_difference": 123.0,
+    "modified_pixel_count": 1825594,
+    "modified_pixel_pct": 16.338,
+    "p50_difference": 1.0,
+    "p90_difference": 7.0,
+    "p99_difference": 25.0
+  }
+}

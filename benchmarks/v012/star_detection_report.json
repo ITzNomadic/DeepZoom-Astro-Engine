@@ -1,0 +1,48 @@
+{
+  "suite": "StarDetector_V0.1.2_Rigorous_Ground_Truth",
+  "timestamp": "2026-10-17 12:18:22",
+  "detection_time_ms": 19.43,
+  "ground_truth_counts": {
+    "total_sources": 22,
+    "point_sources": 19,
+    "extended_galaxies": 2,
+    "filament_ridges": 2
+  },
+  "detector_classifications": {
+    "point_source": 16,
+    "extended_source": 7,
+    "filament_structure": 39
+  },
+  "point_source_metrics": {
+    "true_positives": 16,
+    "false_positives": 0,
+    "false_negatives": 3,
+    "precision": 1.0,
+    "recall": 0.8421,
+    "f1_score": 0.9143,
+    "mean_centroid_error_px": 0.209,
+    "max_centroid_error_px": 1.553,
+    "mean_flux_error_pct": 13.5,
+    "mean_fwhm_error_px": 0.71
+  },
+  "stratified_by_magnitude": {
+    "Bright": {
+      "ground_truth_count": 5,
+      "true_positives": 5,
+      "recall": 1.0,
+      "mean_drift_px": 0.01
+    },
+    "Medium": {
+      "ground_truth_count": 9,
+      "true_positives": 6,
+      "recall": 0.6667,
+      "mean_drift_px": 0.5
+    },
+    "Faint": {
+      "ground_truth_count": 5,
+      "true_positives": 5,
+      "recall": 1.0,
+      "mean_drift_px": 0.058
+    }
+  }
+}

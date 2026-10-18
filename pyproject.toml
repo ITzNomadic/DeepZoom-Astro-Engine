@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepzoom-astro-engine"
+version = "0.1.4"
+description = "Astro Super-Resolution Engine & Scientific Multi-Model Reconstruction (Vulkan/NCNN)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "DeepZoom Studio Engineering Team" }
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "Pillow>=9.5.0",
+    "scipy>=1.10.0",
+    "opencv-python>=4.7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

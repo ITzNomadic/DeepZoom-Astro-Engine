@@ -1,0 +1,41 @@
+{
+  "project_name": "DeepZoom-Astro-Engine",
+  "version": "0.1.4",
+  "hardware": {
+    "preferred_gpu_id": 0,
+    "fallback_gpu_id": 0,
+    "vulkan_device_name_filter": "RX 5700 XT",
+    "fp16_enabled": true
+  },
+  "inference": {
+    "default_model": "remacri-4x",
+    "default_tile_size": 400,
+    "default_overlap": 16,
+    "default_resample_filter": "catmullrom",
+    "supported_scales": [2, 3, 4],
+    "timeout_seconds": 300
+  },
+  "astro_engine": {
+    "enabled": false,
+    "star_preserve": {
+      "detection_threshold_sigma": 3.5,
+      "max_centroid_drift_px": 0.35,
+      "halo_suppression": true
+    },
+    "filament_guard": {
+      "hessian_scale": 1.5,
+      "continuity_threshold": 0.70,
+      "ringing_suppression": true
+    },
+    "dark_sky": {
+      "black_point_protection": true,
+      "gradient_smoothing_sigma": 1.2
+    }
+  },
+  "paths": {
+    "ncnn_runtime_rel": "runtimes/ncnn/upscayl-bin.exe",
+    "realesrgan_runtime_rel": "runtimes/realesrgan/realesrgan-ncnn-vulkan.exe",
+    "models_dir_rel": "models",
+    "output_dir_rel": "output"
+  }
+}

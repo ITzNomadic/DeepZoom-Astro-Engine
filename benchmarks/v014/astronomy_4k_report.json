@@ -1,0 +1,730 @@
+{
+  "engine_version": "DeepZoom Astro Engine V0.1.4",
+  "timestamp": "2026-10-17 14:23:59",
+  "hardware": {
+    "gpu": "AMD Radeon RX 5700 XT (8 GB VRAM)",
+    "cpu": "AMD Ryzen 5 9600X (6C/12T)",
+    "os": "Windows 11"
+  },
+  "master_variants": {
+    "01_remacri_baseline": {
+      "variant_id": "01_remacri_baseline",
+      "mode": "baseline",
+      "astro_engine_enabled": false,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_01_remacri_baseline.png",
+      "sha256": "b84d2a3009442ae2db3f6bfdf4f627afeb8312c2acdd20f4114ee4a66d40868c",
+      "execution_seconds": 6.46,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {}
+    },
+    "02_ultrasharp": {
+      "variant_id": "02_ultrasharp",
+      "mode": "ultrasharp",
+      "astro_engine_enabled": false,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_02_ultrasharp.png",
+      "sha256": "9430a33859d64c0a02a750dd4f5b95563eb069d61480fbaa04530c708694d8b8",
+      "execution_seconds": 6.35,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {}
+    },
+    "03_realesrgan": {
+      "variant_id": "03_realesrgan",
+      "mode": "realesrgan",
+      "astro_engine_enabled": false,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_03_realesrgan.png",
+      "sha256": "df9351689a7fed35ae2c72542dd055d7e5deaaee68f977e961d506acd428bdea",
+      "execution_seconds": 6.32,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {}
+    },
+    "04_high_fidelity": {
+      "variant_id": "04_high_fidelity",
+      "mode": "high_fidelity",
+      "astro_engine_enabled": false,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_04_high_fidelity.png",
+      "sha256": "be2e37728330f3a076fe49c1232ae73628172b98adc03bcee94f93f9d2f3e845",
+      "execution_seconds": 6.39,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {}
+    },
+    "05_remacri_plus_ibp": {
+      "variant_id": "05_remacri_plus_ibp",
+      "mode": "remacri_plus_ibp",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_05_remacri_plus_ibp.png",
+      "sha256": "53eb1022b23e1efe1e88641797e0090308d9ffb9e79a8f3dd83c3596a4a36e76",
+      "execution_seconds": 15.59,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "ibp": {
+          "method": "iterative_back_projection",
+          "iterations_completed": 5,
+          "step_alpha": 0.45,
+          "tv_weight": 0.005,
+          "degradation_method": "box",
+          "initial_lr_error": {
+            "mae": 3.506,
+            "rmse": 4.679
+          },
+          "final_lr_error": {
+            "mae": 0.2967,
+            "rmse": 0.69
+          },
+          "error_reduction_pct": 91.54,
+          "execution_seconds": 3.929,
+          "history": [
+            {
+              "iteration": 1,
+              "lr_mae": 3.5063,
+              "lr_rmse": 4.6788
+            },
+            {
+              "iteration": 2,
+              "lr_mae": 2.1146,
+              "lr_rmse": 2.9595
+            },
+            {
+              "iteration": 3,
+              "lr_mae": 1.3033,
+              "lr_rmse": 1.9364
+            },
+            {
+              "iteration": 4,
+              "lr_mae": 0.8049,
+              "lr_rmse": 1.324
+            },
+            {
+              "iteration": 5,
+              "lr_mae": 0.4894,
+              "lr_rmse": 0.9433
+            }
+          ]
+        }
+      }
+    },
+    "06_remacri_plus_star": {
+      "variant_id": "06_remacri_plus_star",
+      "mode": "remacri_plus_star",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_06_remacri_plus_star.png",
+      "sha256": "dedae862233ab28dfeef0ac298b064f184fdb3fb062b8dcb05744a9023f0f72b",
+      "execution_seconds": 13.45,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "star_reconstruction": {
+          "inspected_matched_stars": 626,
+          "reconstructed_stars": 623,
+          "binaries_resolved": 30,
+          "deconvolved_halos": 94,
+          "mean_confidence": 0.699
+        }
+      }
+    },
+    "07_remacri_plus_filament": {
+      "variant_id": "07_remacri_plus_filament",
+      "mode": "remacri_plus_filament",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_07_remacri_plus_filament.png",
+      "sha256": "f49b9f9e0503d449ac749f773914559f1bd056249c40fafda7c02758f26cb32b",
+      "execution_seconds": 19.84,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "filament_reconstruction": {
+          "method": "geometry_guided_multimodel_filament_fusion",
+          "filament_coverage_pct": 14.471,
+          "mean_coherence": 0.628,
+          "ultrasharp_core_blend_weight": 0.45,
+          "ringing_healed_pixels": 2320632,
+          "execution_seconds": 1.858
+        }
+      }
+    },
+    "08_multiscale_fusion": {
+      "variant_id": "08_multiscale_fusion",
+      "mode": "multiscale_fusion",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_08_multiscale_fusion.png",
+      "sha256": "83ebd2889649590196f0267f42889d4b96d3c9c460ca1d242e2da3453aacd042",
+      "execution_seconds": 29.93,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "ibp": {
+          "method": "iterative_back_projection",
+          "iterations_completed": 5,
+          "step_alpha": 0.45,
+          "tv_weight": 0.005,
+          "degradation_method": "box",
+          "initial_lr_error": {
+            "mae": 3.506,
+            "rmse": 4.679
+          },
+          "final_lr_error": {
+            "mae": 0.2967,
+            "rmse": 0.69
+          },
+          "error_reduction_pct": 91.54,
+          "execution_seconds": 3.921,
+          "history": [
+            {
+              "iteration": 1,
+              "lr_mae": 3.5063,
+              "lr_rmse": 4.6788
+            },
+            {
+              "iteration": 2,
+              "lr_mae": 2.1146,
+              "lr_rmse": 2.9595
+            },
+            {
+              "iteration": 3,
+              "lr_mae": 1.3033,
+              "lr_rmse": 1.9364
+            },
+            {
+              "iteration": 4,
+              "lr_mae": 0.8049,
+              "lr_rmse": 1.324
+            },
+            {
+              "iteration": 5,
+              "lr_mae": 0.4894,
+              "lr_rmse": 0.9433
+            }
+          ]
+        },
+        "star_reconstruction": {
+          "inspected_matched_stars": 626,
+          "reconstructed_stars": 623,
+          "binaries_resolved": 30,
+          "deconvolved_halos": 94,
+          "mean_confidence": 0.699
+        },
+        "multiscale_fusion": {
+          "mode": "fidelity",
+          "pyramid_levels": 4,
+          "execution_seconds": 3.708,
+          "dominant_model_share_pct": {
+            "remacri": 9.3,
+            "ultrasharp": 3.46,
+            "ibp": 87.07,
+            "star_reconstruction": 0.17
+          }
+        },
+        "selection_map_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v014\\astronomy_test_4k_v014_08_multiscale_fusion_selection_map.png"
+      }
+    },
+    "09_deepzoom_fidelity": {
+      "variant_id": "09_deepzoom_fidelity",
+      "mode": "deepzoom_fidelity",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_09_deepzoom_fidelity.png",
+      "sha256": "83ebd2889649590196f0267f42889d4b96d3c9c460ca1d242e2da3453aacd042",
+      "execution_seconds": 29.76,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "ibp": {
+          "method": "iterative_back_projection",
+          "iterations_completed": 5,
+          "step_alpha": 0.45,
+          "tv_weight": 0.005,
+          "degradation_method": "box",
+          "initial_lr_error": {
+            "mae": 3.506,
+            "rmse": 4.679
+          },
+          "final_lr_error": {
+            "mae": 0.2967,
+            "rmse": 0.69
+          },
+          "error_reduction_pct": 91.54,
+          "execution_seconds": 3.944,
+          "history": [
+            {
+              "iteration": 1,
+              "lr_mae": 3.5063,
+              "lr_rmse": 4.6788
+            },
+            {
+              "iteration": 2,
+              "lr_mae": 2.1146,
+              "lr_rmse": 2.9595
+            },
+            {
+              "iteration": 3,
+              "lr_mae": 1.3033,
+              "lr_rmse": 1.9364
+            },
+            {
+              "iteration": 4,
+              "lr_mae": 0.8049,
+              "lr_rmse": 1.324
+            },
+            {
+              "iteration": 5,
+              "lr_mae": 0.4894,
+              "lr_rmse": 0.9433
+            }
+          ]
+        },
+        "star_reconstruction": {
+          "inspected_matched_stars": 626,
+          "reconstructed_stars": 623,
+          "binaries_resolved": 30,
+          "deconvolved_halos": 94,
+          "mean_confidence": 0.699
+        },
+        "multiscale_fusion": {
+          "mode": "fidelity",
+          "pyramid_levels": 4,
+          "execution_seconds": 3.646,
+          "dominant_model_share_pct": {
+            "remacri": 9.3,
+            "ultrasharp": 3.46,
+            "ibp": 87.07,
+            "star_reconstruction": 0.17
+          }
+        },
+        "selection_map_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v014\\astronomy_test_4k_v014_09_deepzoom_fidelity_selection_map.png"
+      }
+    },
+    "10_deepzoom_cinematic": {
+      "variant_id": "10_deepzoom_cinematic",
+      "mode": "deepzoom_cinematic",
+      "astro_engine_enabled": true,
+      "file_path": "output\\experimental\\v014\\astronomy_test_4k_v014_10_deepzoom_cinematic.png",
+      "sha256": "7c513890198c25044c43d48ad8177ee203dcdb2015383212c139f442d8c049dc",
+      "execution_seconds": 29.91,
+      "dimensions": [
+        2728,
+        4096
+      ],
+      "meta_artifacts": {
+        "ibp": {
+          "method": "iterative_back_projection",
+          "iterations_completed": 5,
+          "step_alpha": 0.45,
+          "tv_weight": 0.005,
+          "degradation_method": "box",
+          "initial_lr_error": {
+            "mae": 3.506,
+            "rmse": 4.679
+          },
+          "final_lr_error": {
+            "mae": 0.2967,
+            "rmse": 0.69
+          },
+          "error_reduction_pct": 91.54,
+          "execution_seconds": 3.947,
+          "history": [
+            {
+              "iteration": 1,
+              "lr_mae": 3.5063,
+              "lr_rmse": 4.6788
+            },
+            {
+              "iteration": 2,
+              "lr_mae": 2.1146,
+              "lr_rmse": 2.9595
+            },
+            {
+              "iteration": 3,
+              "lr_mae": 1.3033,
+              "lr_rmse": 1.9364
+            },
+            {
+              "iteration": 4,
+              "lr_mae": 0.8049,
+              "lr_rmse": 1.324
+            },
+            {
+              "iteration": 5,
+              "lr_mae": 0.4894,
+              "lr_rmse": 0.9433
+            }
+          ]
+        },
+        "star_reconstruction": {
+          "inspected_matched_stars": 626,
+          "reconstructed_stars": 623,
+          "binaries_resolved": 30,
+          "deconvolved_halos": 94,
+          "mean_confidence": 0.699
+        },
+        "multiscale_fusion": {
+          "mode": "cinematic",
+          "pyramid_levels": 4,
+          "execution_seconds": 3.602,
+          "dominant_model_share_pct": {
+            "remacri": 39.28,
+            "ultrasharp": 21.39,
+            "ibp": 39.14,
+            "star_reconstruction": 0.19
+          }
+        },
+        "selection_map_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v014\\astronomy_test_4k_v014_10_deepzoom_cinematic_selection_map.png"
+      }
+    }
+  },
+  "crops": [
+    {
+      "crop_id": 1,
+      "crop_name": "crop1_event_horizon",
+      "crop_title": "Borde del Agujero Negro y Horizonte",
+      "coordinates": {
+        "x0": 1308,
+        "x1": 1564,
+        "y0": 1760,
+        "y1": 2016,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 38.17,
+          "ssim": 0.9755,
+          "mod_pct": 99.994
+        },
+        "cinematic": {
+          "psnr_db": 41.81,
+          "ssim": 0.9907,
+          "mod_pct": 99.594
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop1_event_horizon_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop1_event_horizon_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop1_event_horizon_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop1_event_horizon_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop1_event_horizon_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "a4687c182bf77553b05a72a57e425a1faeacd063b1494383f771f4c9b8fdc2a0",
+        "fidelity": "9c9a4f5682b68b3e4c58f8b021fc01754b1e1976734c65f91949ce178cdc8306",
+        "cinematic": "3c54cfa26c91c9dd4e06e9792e7ebe69db301e5b906a3858b4d3de94d836de47"
+      }
+    },
+    {
+      "crop_id": 2,
+      "crop_name": "crop2_accretion_disk",
+      "crop_title": "Anillo Fot\u00f3nico y Filamentos del Disco",
+      "coordinates": {
+        "x0": 1308,
+        "x1": 1564,
+        "y0": 1560,
+        "y1": 1816,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 34.83,
+          "ssim": 0.9788,
+          "mod_pct": 99.875
+        },
+        "cinematic": {
+          "psnr_db": 34.56,
+          "ssim": 0.9646,
+          "mod_pct": 99.29
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop2_accretion_disk_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop2_accretion_disk_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop2_accretion_disk_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop2_accretion_disk_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop2_accretion_disk_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "731e8ac278c96482a039c9cf3300fb421c64c4ad5a032b37efb68435c0d7b8d0",
+        "fidelity": "f42ae5bbb48936d1052a30d2c6ef5a6b2e21aca440b3aa72f3618f27adc0f59a",
+        "cinematic": "071ab42a9106249c2d42d9d5ca1ec40a207a7819b81e071c707e92c970734cf4"
+      }
+    },
+    {
+      "crop_id": 3,
+      "crop_name": "crop3_fine_filaments",
+      "crop_title": "Filamentos Finos de Plasma",
+      "coordinates": {
+        "x0": 1664,
+        "x1": 1920,
+        "y0": 1408,
+        "y1": 1664,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 33.16,
+          "ssim": 0.9674,
+          "mod_pct": 99.966
+        },
+        "cinematic": {
+          "psnr_db": 32.04,
+          "ssim": 0.9269,
+          "mod_pct": 99.709
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop3_fine_filaments_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop3_fine_filaments_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop3_fine_filaments_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop3_fine_filaments_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop3_fine_filaments_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "d1f62c9bd9fb31c12c6e59fb793816faa7ffbd70ec4712748aaf82dcb299a7ec",
+        "fidelity": "aacb678275b02ca3e1754c54cf9efea45d0daf2be83b6f7e467bf04b12708f42",
+        "cinematic": "3e548d02ac18a4a3db58dd696a75350399863631fdc6b59357cada8abbe4fc03"
+      }
+    },
+    {
+      "crop_id": 4,
+      "crop_name": "crop4_isolated_star",
+      "crop_title": "Estrella Peque\u00f1a Puntual Aislada",
+      "coordinates": {
+        "x0": 0,
+        "x1": 256,
+        "y0": 3572,
+        "y1": 3828,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 36.77,
+          "ssim": 0.9828,
+          "mod_pct": 99.799
+        },
+        "cinematic": {
+          "psnr_db": 36.73,
+          "ssim": 0.969,
+          "mod_pct": 98.737
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop4_isolated_star_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop4_isolated_star_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop4_isolated_star_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop4_isolated_star_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop4_isolated_star_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "d6f5f5a9fec87d8862d68ab3d909ca1f1cd7f5116d867ac4a838cdbbe4823604",
+        "fidelity": "fbca65538f47cf15142e0f19e57e117c7400f56d25160589dc53c34b4b1ec336",
+        "cinematic": "169903594ebaf5899b9549bdc56b7cf620b2760df70ba0cac6db7e2377b4ed06"
+      }
+    },
+    {
+      "crop_id": 5,
+      "crop_name": "crop5_crowded_cluster",
+      "crop_title": "C\u00famulo Estelar Denso",
+      "coordinates": {
+        "x0": 2149,
+        "x1": 2405,
+        "y0": 3309,
+        "y1": 3565,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 31.92,
+          "ssim": 0.9126,
+          "mod_pct": 99.866
+        },
+        "cinematic": {
+          "psnr_db": 32.73,
+          "ssim": 0.959,
+          "mod_pct": 99.258
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop5_crowded_cluster_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop5_crowded_cluster_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop5_crowded_cluster_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop5_crowded_cluster_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop5_crowded_cluster_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "85a9864da28dedcbb1fa85b1c4cbc6f371dd23dfd6f991946583ae0459a5264d",
+        "fidelity": "058408f990831eb12c934c3a793c818e72e18a4a2c3826b0eaba3343e7ad2579",
+        "cinematic": "22946248975f4d5fa4a01ceaeaca2ca9f69ad0767d10542256216b2a24716b1f"
+      }
+    },
+    {
+      "crop_id": 6,
+      "crop_name": "crop6_small_galaxy",
+      "crop_title": "Galaxia Extendida Lejana",
+      "coordinates": {
+        "x0": 2332,
+        "x1": 2588,
+        "y0": 2697,
+        "y1": 2953,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 32.8,
+          "ssim": 0.9192,
+          "mod_pct": 99.898
+        },
+        "cinematic": {
+          "psnr_db": 32.66,
+          "ssim": 0.9561,
+          "mod_pct": 99.332
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop6_small_galaxy_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop6_small_galaxy_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop6_small_galaxy_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop6_small_galaxy_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop6_small_galaxy_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "aeef9052d8f73cfc6f2c98b42802163e81fb12984aadf8fee8f4a97001e1adb4",
+        "fidelity": "d229967ada79897d4c7a9f43d2017e39aee598fb8c6322b1b707bef6d9ba39cd",
+        "cinematic": "67fa7f9838b3913c7c77830c5828a3f75ccf5b31b85354cae4e023c9b9fcf5cc"
+      }
+    },
+    {
+      "crop_id": 7,
+      "crop_name": "crop7_faint_nebulosity",
+      "crop_title": "Nebulosidad Tenue y Polvo",
+      "coordinates": {
+        "x0": 2432,
+        "x1": 2688,
+        "y0": 2304,
+        "y1": 2560,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 33.78,
+          "ssim": 0.9189,
+          "mod_pct": 99.925
+        },
+        "cinematic": {
+          "psnr_db": 35.85,
+          "ssim": 0.9685,
+          "mod_pct": 99.402
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop7_faint_nebulosity_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop7_faint_nebulosity_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop7_faint_nebulosity_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop7_faint_nebulosity_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop7_faint_nebulosity_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "6121383827c23e04d82cd8b7b43a01bffedc584247179bc653c975edbab77c4e",
+        "fidelity": "83c130322c24014a2ac3e38e32d728071705c72004f9bc0983a1443f34095658",
+        "cinematic": "9fdb4c4a937afe3a9dbfd5edfce01810d078b37cfec7d0b1349fb88e68fd1537"
+      }
+    },
+    {
+      "crop_id": 8,
+      "crop_name": "crop8_deep_cosmic_background",
+      "crop_title": "Fondo Oscuro con Estructuras D\u00e9biles",
+      "coordinates": {
+        "x0": 1152,
+        "x1": 1408,
+        "y0": 64,
+        "y1": 320,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 35.34,
+          "ssim": 0.8588,
+          "mod_pct": 99.876
+        },
+        "cinematic": {
+          "psnr_db": 37.77,
+          "ssim": 0.9538,
+          "mod_pct": 99.232
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop8_deep_cosmic_background_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop8_deep_cosmic_background_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop8_deep_cosmic_background_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop8_deep_cosmic_background_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop8_deep_cosmic_background_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "aa4af85fe70cf0a9d7f2b2e85607e44c58893751ef8941b977ad6aef03c2e80d",
+        "fidelity": "3e83da90b5c51f2b5abfd4f731ccb494b1e6f344adcda774357aac6ccb9b3127",
+        "cinematic": "5dfe7cd30980b8b1e72362b04978912736d4bdb31ee469e41f36c34f078cb9d9"
+      }
+    },
+    {
+      "crop_id": 9,
+      "crop_name": "crop9_binary_pair",
+      "crop_title": "Pareja Estelar Doble",
+      "coordinates": {
+        "x0": 2200,
+        "x1": 2456,
+        "y0": 3450,
+        "y1": 3706,
+        "width": 256,
+        "height": 256
+      },
+      "metrics_vs_remacri": {
+        "fidelity": {
+          "psnr_db": 32.43,
+          "ssim": 0.9692,
+          "mod_pct": 99.728
+        },
+        "cinematic": {
+          "psnr_db": 32.45,
+          "ssim": 0.9642,
+          "mod_pct": 99.08
+        }
+      },
+      "files": {
+        "remacri": "output\\experimental\\v014\\crops\\matrix\\crop9_binary_pair_01_pure_remacri.png",
+        "fidelity": "output\\experimental\\v014\\crops\\matrix\\crop9_binary_pair_02_deepzoom_fidelity.png",
+        "cinematic": "output\\experimental\\v014\\crops\\matrix\\crop9_binary_pair_03_deepzoom_cinematic.png",
+        "diff_15x": "output\\experimental\\v014\\crops\\matrix\\crop9_binary_pair_04_diff_15x.png",
+        "quad_panel": "output\\experimental\\v014\\crops\\matrix\\crop9_binary_pair_05_quad_panel.png"
+      },
+      "sha256": {
+        "remacri": "49c8a035ef2a4cf12ecb02923c85a406ba2b4840192fb2657504679b0ac5cf80",
+        "fidelity": "9b367c38e71830f93f1a309c79ac3ce5790ccfdc8a9c7ed6119f1248afcb6f10",
+        "cinematic": "4538a9aa01d061a986bc25bd4923512ae25ef3eaa21126818043f247167ba191"
+      }
+    }
+  ]
+}

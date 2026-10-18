@@ -1,0 +1,62 @@
+[
+  {
+    "file": "black_hole_source_2880x5120.jpg",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\originals\\black_hole_source_2880x5120.jpg",
+    "dimensions": "2880x5120",
+    "megapixels": 14.75,
+    "mode": "RGB",
+    "format": "JPEG",
+    "size_mb": 0.82,
+    "status": "OK_VALID"
+  },
+  {
+    "file": "black_hole_base_1152x2048.png",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\originals\\black_hole_base_1152x2048.png",
+    "dimensions": "1152x2048",
+    "megapixels": 2.36,
+    "mode": "RGB",
+    "format": "PNG",
+    "size_mb": 1.83,
+    "status": "OK_VALID"
+  },
+  {
+    "file": "blackhole_8k_4608x8192_remacri.png",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\results_4k_8k\\blackhole_8k_4608x8192_remacri.png",
+    "dimensions": "4608x8192",
+    "megapixels": 37.75,
+    "mode": "RGB",
+    "format": "PNG",
+    "size_mb": 28.51,
+    "status": "OK_VALID"
+  },
+  {
+    "file": "blackhole_8k_4608x8192_ultrasharp.png",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\results_4k_8k\\blackhole_8k_4608x8192_ultrasharp.png",
+    "dimensions": "4608x8192",
+    "megapixels": 37.75,
+    "mode": "RGB",
+    "format": "PNG",
+    "size_mb": 41.33,
+    "status": "OK_VALID"
+  },
+  {
+    "file": "blackhole_12k_6912x12288_remacri.png",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\results_12k\\blackhole_12k_6912x12288_remacri.png",
+    "dimensions": "6912x12288",
+    "megapixels": 84.93,
+    "mode": "RGB",
+    "format": "PNG",
+    "size_mb": 40.1,
+    "status": "OK_VALID"
+  },
+  {
+    "file": "blackhole_16k_9216x16384_remacri.png",
+    "path": "E:\\Decalga\\TikTokAIStudio\\assets\\super_resolution\\results_16k\\blackhole_16k_9216x16384_remacri.png",
+    "dimensions": "9216x16384",
+    "megapixels": 150.99,
+    "mode": "RGB",
+    "format": "PNG",
+    "size_mb": 67.86,
+    "status": "OK_VALID"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "version": "0.1.2_unoptimized",
+  "image_dimensions": [
+    2728,
+    4096
+  ],
+  "megapixels": 11.17,
+  "total_time_seconds": 248.988,
+  "timings_breakdown_seconds": {
+    "to_float32": 0.0055,
+    "gaussian_filter": 0.0693,
+    "1st_gradient": 0.0344,
+    "2nd_gradient": 0.0809,
+    "eigenvalues": 0.12,
+    "eigenvectors": 0.1605,
+    "ridge_and_coherence_maps": 0.1002,
+    "scipy_label": 0.0299,
+    "scipy_sum_sizes": 0.0928,
+    "np_isin_filtering": 0.0321,
+    "ringing_detection": 0.2024,
+    "coordinate_grid_generation": 0.5552,
+    "flank_zone_dilation": 0.0705,
+    "directional_sampling_and_where": 0.7278,
+    "fragment_bridging": 246.7064
+  },
+  "percentages": {
+    "to_float32": 0.0,
+    "gaussian_filter": 0.03,
+    "1st_gradient": 0.01,
+    "2nd_gradient": 0.03,
+    "eigenvalues": 0.05,
+    "eigenvectors": 0.06,
+    "ridge_and_coherence_maps": 0.04,
+    "scipy_label": 0.01,
+    "scipy_sum_sizes": 0.04,
+    "np_isin_filtering": 0.01,
+    "ringing_detection": 0.08,
+    "coordinate_grid_generation": 0.22,
+    "flank_zone_dilation": 0.03,
+    "directional_sampling_and_where": 0.29,
+    "fragment_bridging": 99.08
+  }
+}

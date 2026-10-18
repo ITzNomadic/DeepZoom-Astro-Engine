@@ -1,0 +1,525 @@
+{
+  "suite": "GeometryLock_V0.1.2_Verification",
+  "timestamp": "2026-10-17 12:18:22",
+  "expected_scale": 4.0,
+  "scenarios_evaluated": 8,
+  "all_general_locks_passed": true,
+  "results": [
+    {
+      "scenario": "Centered_Ideal",
+      "parameters": {
+        "name": "Centered_Ideal",
+        "offset": [
+          0,
+          0
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            150.0,
+            150.0
+          ],
+          "equiv_radius_px": 41.43,
+          "semi_major_axis_px": 41.43,
+          "semi_minor_axis_px": 41.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 5.387,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 5393
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            600.0,
+            600.0
+          ],
+          "equiv_radius_px": 165.7,
+          "semi_major_axis_px": 165.7,
+          "semi_minor_axis_px": 165.7,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 3.685,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 86257
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 4.0,
+        "shadow_scale_error_pct": 0.01,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Shifted_Left",
+      "parameters": {
+        "name": "Shifted_Left",
+        "offset": [
+          -80,
+          0
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            70.0,
+            150.0
+          ],
+          "equiv_radius_px": 41.43,
+          "semi_major_axis_px": 41.43,
+          "semi_minor_axis_px": 41.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 5.387,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 5393
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            280.0,
+            600.0
+          ],
+          "equiv_radius_px": 165.7,
+          "semi_major_axis_px": 165.7,
+          "semi_minor_axis_px": 165.7,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 3.685,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 86257
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 4.0,
+        "shadow_scale_error_pct": 0.01,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Shifted_Right",
+      "parameters": {
+        "name": "Shifted_Right",
+        "offset": [
+          80,
+          0
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            230.0,
+            150.0
+          ],
+          "equiv_radius_px": 41.43,
+          "semi_major_axis_px": 41.43,
+          "semi_minor_axis_px": 41.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 5.387,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 5393
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            920.0,
+            600.0
+          ],
+          "equiv_radius_px": 165.7,
+          "semi_major_axis_px": 165.7,
+          "semi_minor_axis_px": 165.7,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 3.685,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 86257
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 4.0,
+        "shadow_scale_error_pct": 0.01,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Shifted_Up",
+      "parameters": {
+        "name": "Shifted_Up",
+        "offset": [
+          0,
+          -70
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            150.0,
+            80.0
+          ],
+          "equiv_radius_px": 41.43,
+          "semi_major_axis_px": 41.43,
+          "semi_minor_axis_px": 41.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 5.387,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 5393
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            600.0,
+            320.0
+          ],
+          "equiv_radius_px": 165.7,
+          "semi_major_axis_px": 165.7,
+          "semi_minor_axis_px": 165.7,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 3.685,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 86257
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 4.0,
+        "shadow_scale_error_pct": 0.01,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Shifted_Down",
+      "parameters": {
+        "name": "Shifted_Down",
+        "offset": [
+          0,
+          70
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            150.0,
+            220.0
+          ],
+          "equiv_radius_px": 41.43,
+          "semi_major_axis_px": 41.43,
+          "semi_minor_axis_px": 41.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 5.387,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 5393
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            600.0,
+            880.0
+          ],
+          "equiv_radius_px": 165.7,
+          "semi_major_axis_px": 165.7,
+          "semi_minor_axis_px": 165.7,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 3.685,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 86257
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 4.0,
+        "shadow_scale_error_pct": 0.01,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Low_Contrast",
+      "parameters": {
+        "name": "Low_Contrast",
+        "offset": [
+          0,
+          0
+        ],
+        "contrast": 0.25,
+        "floor": 25.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 0.818,
+          "centroid": [
+            150.0,
+            150.0
+          ],
+          "equiv_radius_px": 49.36,
+          "semi_major_axis_px": 49.36,
+          "semi_minor_axis_px": 49.36,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 2.016,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 7653
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 0.775,
+          "centroid": [
+            600.0,
+            600.0
+          ],
+          "equiv_radius_px": 211.3,
+          "semi_major_axis_px": 211.3,
+          "semi_minor_axis_px": 211.3,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 1.857,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 140261
+        },
+        "shadow_tracking_verified": false,
+        "measured_shadow_scale": 4.281,
+        "shadow_scale_error_pct": 7.02,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Variable_Floor_I45",
+      "parameters": {
+        "name": "Variable_Floor_I45",
+        "offset": [
+          25,
+          -25
+        ],
+        "contrast": 1.0,
+        "floor": 45.0,
+        "occlusion": 0.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 1.0,
+          "centroid": [
+            175.0,
+            125.0
+          ],
+          "equiv_radius_px": 45.43,
+          "semi_major_axis_px": 45.43,
+          "semi_minor_axis_px": 45.43,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 2.83,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 6485
+        },
+        "output_shadow": {
+          "detected": true,
+          "status": "DETECTED_HIGH_CONFIDENCE",
+          "confidence": 0.902,
+          "centroid": [
+            700.0,
+            500.0
+          ],
+          "equiv_radius_px": 181.54,
+          "semi_major_axis_px": 181.54,
+          "semi_minor_axis_px": 181.54,
+          "axis_ratio": 1.0,
+          "orientation_deg": 0.0,
+          "contrast_ratio": 2.334,
+          "enclosure_angle_deg": 360.0,
+          "area_px": 103541
+        },
+        "shadow_tracking_verified": true,
+        "measured_shadow_scale": 3.996,
+        "shadow_scale_error_pct": 0.1,
+        "centroid_drift_px": 0.0
+      }
+    },
+    {
+      "scenario": "Partially_Occluded_150deg",
+      "parameters": {
+        "name": "Partially_Occluded_150deg",
+        "offset": [
+          0,
+          0
+        ],
+        "contrast": 1.0,
+        "floor": 10.0,
+        "occlusion": 150.0
+      },
+      "general_lock_passed": true,
+      "general_geometry": {
+        "general_lock_passed": true,
+        "expected_scale": 4.0,
+        "measured_scale": 4.0,
+        "scale_error_pct": 0.0,
+        "scale_x": 4.0,
+        "scale_y": 4.0,
+        "aspect_ratio_drift_pct": 0.0,
+        "mean_point_drift_px": 0.0,
+        "max_point_drift_px": 0.0,
+        "rmse_point_drift_px": 0.0,
+        "control_points_evaluated": 4
+      },
+      "semantic_shadow_analysis": {
+        "input_shadow": {
+          "detected": false,
+          "status": "NOT_DETECTED",
+          "confidence": 0.0,
+          "rejection_reason": "No candidate dark basins met topological enclosure criteria",
+          "centroid": null,
+          "equiv_radius_px": null
+        },
+        "output_shadow": {
+          "detected": false,
+          "status": "NOT_DETECTED",
+          "confidence": 0.0,
+          "rejection_reason": "No candidate dark basins met topological enclosure criteria",
+          "centroid": null,
+          "equiv_radius_px": null
+        },
+        "shadow_tracking_verified": false,
+        "note": "Shadow not detected with high confidence in one or both images; general geometry relied upon."
+      }
+    }
+  ]
+}

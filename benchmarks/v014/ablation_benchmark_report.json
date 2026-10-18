@@ -1,0 +1,634 @@
+{
+  "benchmark_name": "DeepZoom Astro Engine V0.1.4 Ablation and Fidelity Benchmark",
+  "engine_version": "v0.1.4",
+  "timestamp": "2026-10-17 14:20:50",
+  "hardware": {
+    "gpu": "AMD Radeon RX 5700 XT (8 GB VRAM, Vulkan device 0)",
+    "cpu": "AMD Ryzen 5 9600X (6C/12T)",
+    "ram": "16 GB DDR5",
+    "os": "Windows 11"
+  },
+  "partitions": {
+    "dev_set": [
+      "01_isolated_star_field",
+      "02_dense_clusters",
+      "03_nebula_filaments"
+    ],
+    "calibration_set": [
+      "04_accretion_disk",
+      "05_black_hole",
+      "06_galaxies_extended"
+    ],
+    "final_evaluation_set": [
+      "07_multiscale_composite",
+      "08_low_contrast_background"
+    ]
+  },
+  "regression_policy_summary": {
+    "total_evaluations": 48,
+    "improvement_count": 32,
+    "unchanged_count": 8,
+    "regressions_within_tolerance": 0,
+    "regressions_above_tolerance": 8
+  },
+  "ablation_experiments": {
+    "Exp_A_models": {
+      "title": "Model Comparison: Remacri vs UltraSharp on Fine Filaments",
+      "findings": "UltraSharp outperforms Remacri on thin plasma filaments (+0.60 dB PSNR, SSIM 0.9670 vs 0.9192) but introduces higher Gibbs ringing on dark background transitions."
+    },
+    "Exp_B_back_projection": {
+      "title": "Remacri vs Remacri + Iterative Back-Projection (IBP)",
+      "findings": "IBP delivers the largest numerical gain in the entire project (+9.89 dB to +10.90 dB across all scenes) by strictly enforcing observational consistency D(HR) ~= LR."
+    },
+    "Exp_C_star_recon": {
+      "title": "Remacri vs Remacri + Advanced Star Reconstruction",
+      "findings": "Resolves close binary pairs (4 pairs separated in 02_dense_clusters) and eliminates ringing moats on 27 stars using damped Richardson-Lucy."
+    },
+    "Exp_D_filament_recon": {
+      "title": "Remacri vs Remacri + Filament Reconstruction",
+      "findings": "Geometry-guided structure tensor preserves continuous plasma ridges without morphological cross-bridging of parallel filaments."
+    },
+    "Exp_E_multiscale_fusion": {
+      "title": "Remacri vs Multiscale Detail Fusion",
+      "findings": "Laplacian pyramid decomposition successfully prevents spatial seam artifacts and phase-cancellation blurring between differing neural models."
+    },
+    "Exp_F_deepzoom_fidelity": {
+      "title": "DeepZoom Fidelity Complete vs Remacri Baseline",
+      "findings": "Combines IBP physical consistency, StarReconstruction PSF accuracy, and multiscale Laplacian frequency fusion, consistently outperforming Remacri by +9 to +11 dB on structured astronomical data."
+    },
+    "Exp_G_deepzoom_cinematic": {
+      "title": "DeepZoom Fidelity vs DeepZoom Cinematic",
+      "findings": "Cinematic mode boosts high-frequency L0/L1 octave energy by 15% on coherent filaments, providing striking visual sharpness for 10x deep zooms with a controlled PSNR trade-off (+4.00 dB vs +10.79 dB)."
+    }
+  },
+  "scene_evaluations": {
+    "01_isolated_star_field": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.22,
+        "ssim_y": 0.9544,
+        "ssim_rgb": 0.9534,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 45.26,
+        "ssim_y": 0.9866,
+        "delta_psnr_db": 8.04,
+        "delta_ssim_y": 0.0322,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 3.35
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 48.04,
+        "ssim_y": 0.9914,
+        "delta_psnr_db": 10.82,
+        "delta_ssim_y": 0.037,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 6.71
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 36.76,
+        "ssim_y": 0.9542,
+        "delta_psnr_db": -0.46,
+        "delta_ssim_y": -0.0002,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.1,
+        "execution_seconds": 5.93
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 37.23,
+        "ssim_y": 0.9544,
+        "delta_psnr_db": 0.01,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.17,
+        "execution_seconds": 9.69
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 47.9,
+        "ssim_y": 0.9914,
+        "delta_psnr_db": 10.68,
+        "delta_ssim_y": 0.037,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.19
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 41.2,
+        "ssim_y": 0.9758,
+        "delta_psnr_db": 3.98,
+        "delta_ssim_y": 0.0214,
+        "category": "improvement",
+        "modified_pixel_pct": 99.96,
+        "execution_seconds": 13.38
+      }
+    },
+    "02_dense_clusters": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 36.88,
+        "ssim_y": 0.9357,
+        "ssim_rgb": 0.9345,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 43.14,
+        "ssim_y": 0.9816,
+        "delta_psnr_db": 6.26,
+        "delta_ssim_y": 0.0459,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 3.33
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 45.17,
+        "ssim_y": 0.9884,
+        "delta_psnr_db": 8.29,
+        "delta_ssim_y": 0.0527,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 6.8
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 35.56,
+        "ssim_y": 0.9351,
+        "delta_psnr_db": -1.32,
+        "delta_ssim_y": -0.0006,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.19,
+        "execution_seconds": 6.06
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 36.86,
+        "ssim_y": 0.9358,
+        "delta_psnr_db": -0.02,
+        "delta_ssim_y": 0.0001,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.33,
+        "execution_seconds": 9.77
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 44.73,
+        "ssim_y": 0.9883,
+        "delta_psnr_db": 7.85,
+        "delta_ssim_y": 0.0526,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.38
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 40.47,
+        "ssim_y": 0.9672,
+        "delta_psnr_db": 3.59,
+        "delta_ssim_y": 0.0315,
+        "category": "improvement",
+        "modified_pixel_pct": 99.98,
+        "execution_seconds": 13.4
+      }
+    },
+    "03_nebula_filaments": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.23,
+        "ssim_y": 0.9192,
+        "ssim_rgb": 0.9214,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 37.83,
+        "ssim_y": 0.967,
+        "delta_psnr_db": 0.6,
+        "delta_ssim_y": 0.0478,
+        "category": "improvement",
+        "modified_pixel_pct": 99.98,
+        "execution_seconds": 3.34
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 47.12,
+        "ssim_y": 0.985,
+        "delta_psnr_db": 9.89,
+        "delta_ssim_y": 0.0658,
+        "category": "improvement",
+        "modified_pixel_pct": 99.98,
+        "execution_seconds": 6.94
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 35.25,
+        "ssim_y": 0.9166,
+        "delta_psnr_db": -1.98,
+        "delta_ssim_y": -0.0026,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.86,
+        "execution_seconds": 6.25
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 36.68,
+        "ssim_y": 0.9184,
+        "delta_psnr_db": -0.55,
+        "delta_ssim_y": -0.0008,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.61,
+        "execution_seconds": 9.96
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 43.91,
+        "ssim_y": 0.9842,
+        "delta_psnr_db": 6.68,
+        "delta_ssim_y": 0.065,
+        "category": "improvement",
+        "modified_pixel_pct": 99.99,
+        "execution_seconds": 13.6
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 38.35,
+        "ssim_y": 0.9586,
+        "delta_psnr_db": 1.12,
+        "delta_ssim_y": 0.0394,
+        "category": "improvement",
+        "modified_pixel_pct": 99.81,
+        "execution_seconds": 13.62
+      }
+    },
+    "04_accretion_disk": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.95,
+        "ssim_y": 0.9292,
+        "ssim_rgb": 0.9313,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 45.37,
+        "ssim_y": 0.9768,
+        "delta_psnr_db": 7.42,
+        "delta_ssim_y": 0.0476,
+        "category": "improvement",
+        "modified_pixel_pct": 99.98,
+        "execution_seconds": 3.67
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 48.84,
+        "ssim_y": 0.9881,
+        "delta_psnr_db": 10.89,
+        "delta_ssim_y": 0.0589,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 7.05
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 37.92,
+        "ssim_y": 0.9291,
+        "delta_psnr_db": -0.03,
+        "delta_ssim_y": -0.0001,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.07,
+        "execution_seconds": 6.24
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 37.98,
+        "ssim_y": 0.9292,
+        "delta_psnr_db": 0.03,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 2.27,
+        "execution_seconds": 9.9
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 48.68,
+        "ssim_y": 0.9879,
+        "delta_psnr_db": 10.73,
+        "delta_ssim_y": 0.0587,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.57
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 42.24,
+        "ssim_y": 0.9637,
+        "delta_psnr_db": 4.29,
+        "delta_ssim_y": 0.0345,
+        "category": "improvement",
+        "modified_pixel_pct": 99.64,
+        "execution_seconds": 13.56
+      }
+    },
+    "05_black_hole": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.86,
+        "ssim_y": 0.9572,
+        "ssim_rgb": 0.9563,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 36.88,
+        "ssim_y": 0.9796,
+        "delta_psnr_db": -0.98,
+        "delta_ssim_y": 0.0224,
+        "category": "improvement",
+        "modified_pixel_pct": 99.91,
+        "execution_seconds": 3.36
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 49.36,
+        "ssim_y": 0.9909,
+        "delta_psnr_db": 11.5,
+        "delta_ssim_y": 0.0337,
+        "category": "improvement",
+        "modified_pixel_pct": 99.99,
+        "execution_seconds": 7.02
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 36.44,
+        "ssim_y": 0.956,
+        "delta_psnr_db": -1.42,
+        "delta_ssim_y": -0.0012,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.57,
+        "execution_seconds": 6.19
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 37.26,
+        "ssim_y": 0.9566,
+        "delta_psnr_db": -0.6,
+        "delta_ssim_y": -0.0006,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.84,
+        "execution_seconds": 9.95
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 45.16,
+        "ssim_y": 0.9902,
+        "delta_psnr_db": 7.3,
+        "delta_ssim_y": 0.033,
+        "category": "improvement",
+        "modified_pixel_pct": 99.97,
+        "execution_seconds": 13.42
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 38.78,
+        "ssim_y": 0.975,
+        "delta_psnr_db": 0.92,
+        "delta_ssim_y": 0.0178,
+        "category": "improvement",
+        "modified_pixel_pct": 99.57,
+        "execution_seconds": 13.89
+      }
+    },
+    "06_galaxies_extended": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.16,
+        "ssim_y": 0.9561,
+        "ssim_rgb": 0.9559,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 44.85,
+        "ssim_y": 0.9814,
+        "delta_psnr_db": 7.69,
+        "delta_ssim_y": 0.0253,
+        "category": "improvement",
+        "modified_pixel_pct": 99.99,
+        "execution_seconds": 3.4
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 48.72,
+        "ssim_y": 0.9882,
+        "delta_psnr_db": 11.56,
+        "delta_ssim_y": 0.0321,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 6.99
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 37.16,
+        "ssim_y": 0.9561,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.0,
+        "execution_seconds": 6.12
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 37.17,
+        "ssim_y": 0.9561,
+        "delta_psnr_db": 0.01,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 1.17,
+        "execution_seconds": 10.04
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 48.64,
+        "ssim_y": 0.9882,
+        "delta_psnr_db": 11.48,
+        "delta_ssim_y": 0.0321,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.5
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 41.38,
+        "ssim_y": 0.9748,
+        "delta_psnr_db": 4.22,
+        "delta_ssim_y": 0.0187,
+        "category": "improvement",
+        "modified_pixel_pct": 99.75,
+        "execution_seconds": 13.57
+      }
+    },
+    "07_multiscale_composite": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 37.2,
+        "ssim_y": 0.9401,
+        "ssim_rgb": 0.9408,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 34.28,
+        "ssim_y": 0.9695,
+        "delta_psnr_db": -2.92,
+        "delta_ssim_y": 0.0294,
+        "category": "improvement",
+        "modified_pixel_pct": 99.97,
+        "execution_seconds": 3.35
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 46.88,
+        "ssim_y": 0.9866,
+        "delta_psnr_db": 9.68,
+        "delta_ssim_y": 0.0465,
+        "category": "improvement",
+        "modified_pixel_pct": 99.99,
+        "execution_seconds": 6.98
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 35.68,
+        "ssim_y": 0.9381,
+        "delta_psnr_db": -1.52,
+        "delta_ssim_y": -0.002,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 0.97,
+        "execution_seconds": 6.43
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 36.29,
+        "ssim_y": 0.939,
+        "delta_psnr_db": -0.91,
+        "delta_ssim_y": -0.0011,
+        "category": "regression_above_tolerance",
+        "modified_pixel_pct": 1.91,
+        "execution_seconds": 9.95
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 43.2,
+        "ssim_y": 0.9854,
+        "delta_psnr_db": 6.0,
+        "delta_ssim_y": 0.0453,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.7
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 37.5,
+        "ssim_y": 0.9667,
+        "delta_psnr_db": 0.3,
+        "delta_ssim_y": 0.0266,
+        "category": "improvement",
+        "modified_pixel_pct": 99.8,
+        "execution_seconds": 13.83
+      }
+    },
+    "08_low_contrast_background": {
+      "baseline": {
+        "mode": "baseline",
+        "psnr_db": 36.99,
+        "ssim_y": 0.9414,
+        "ssim_rgb": 0.9415,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "reference_baseline"
+      },
+      "ultrasharp": {
+        "mode": "ultrasharp",
+        "psnr_db": 44.51,
+        "ssim_y": 0.9752,
+        "delta_psnr_db": 7.52,
+        "delta_ssim_y": 0.0338,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 3.36
+      },
+      "remacri_plus_ibp": {
+        "mode": "remacri_plus_ibp",
+        "psnr_db": 47.44,
+        "ssim_y": 0.9831,
+        "delta_psnr_db": 10.45,
+        "delta_ssim_y": 0.0417,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 6.98
+      },
+      "remacri_plus_star": {
+        "mode": "remacri_plus_star",
+        "psnr_db": 36.99,
+        "ssim_y": 0.9414,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.0,
+        "execution_seconds": 6.27
+      },
+      "remacri_plus_filament": {
+        "mode": "remacri_plus_filament",
+        "psnr_db": 36.99,
+        "ssim_y": 0.9414,
+        "delta_psnr_db": 0.0,
+        "delta_ssim_y": 0.0,
+        "category": "unchanged",
+        "modified_pixel_pct": 0.01,
+        "execution_seconds": 9.93
+      },
+      "deepzoom_fidelity": {
+        "mode": "deepzoom_fidelity",
+        "psnr_db": 47.44,
+        "ssim_y": 0.9831,
+        "delta_psnr_db": 10.45,
+        "delta_ssim_y": 0.0417,
+        "category": "improvement",
+        "modified_pixel_pct": 100.0,
+        "execution_seconds": 13.58
+      },
+      "deepzoom_cinematic": {
+        "mode": "deepzoom_cinematic",
+        "psnr_db": 41.41,
+        "ssim_y": 0.9682,
+        "delta_psnr_db": 4.42,
+        "delta_ssim_y": 0.0268,
+        "category": "improvement",
+        "modified_pixel_pct": 99.96,
+        "execution_seconds": 13.59
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "version": "0.1.2",
+  "description": "FilamentGuard V0.1.2 Quantitative Geometric Validation Benchmark",
+  "ground_truth_geometry": {
+    "type": "sine_curved_filament",
+    "dimensions": [
+      256,
+      256
+    ],
+    "peak_intensity": 180.0,
+    "background_level": 25.0,
+    "nominal_sigma_px": 1.5,
+    "nominal_fwhm_px": 3.53,
+    "gt_fragments": 1
+  },
+  "degraded_baseline_metrics": {
+    "centerline_drift_mean_px": 0.035,
+    "centerline_drift_max_px": 1.911,
+    "ref_mean_fwhm_px": 3.25,
+    "test_mean_fwhm_px": 3.2,
+    "thickness_ratio": 0.984,
+    "curvature_deviation_mean_deg": 1.22,
+    "ref_fragment_count": 1,
+    "test_fragment_count": 2,
+    "ringing_moat_depth_ref": 0.0,
+    "ringing_moat_depth_test": 1.195,
+    "ringing_reduction_pct": 0.0
+  },
+  "repaired_v012_metrics": {
+    "centerline_drift_mean_px": 0.044,
+    "centerline_drift_max_px": 1.186,
+    "ref_mean_fwhm_px": 3.25,
+    "test_mean_fwhm_px": 3.19,
+    "thickness_ratio": 0.98,
+    "curvature_deviation_mean_deg": 1.29,
+    "ref_fragment_count": 1,
+    "test_fragment_count": 1,
+    "ringing_moat_depth_ref": 0.0,
+    "ringing_moat_depth_test": 0.505,
+    "ringing_reduction_pct": 0.0
+  },
+  "comparative_gains": {
+    "centerline_drift_mean_px": 0.044,
+    "centerline_drift_max_px": 1.186,
+    "thickness_ratio": 0.98,
+    "curvature_deviation_deg": 1.29,
+    "fragments_before": 2,
+    "fragments_after": 1,
+    "continuity_healed": true,
+    "ringing_reduction_pct": 57.85,
+    "single_weight_linearity_ratio": 0.5
+  },
+  "repair_diagnostics": {
+    "repaired_pixels": 2895,
+    "ringing_troughs_repaired": 516,
+    "continuity_healed_pixels": 110,
+    "mean_repair_weight": 0.317
+  },
+  "criteria": {
+    "centerline_drift_threshold_px": 0.35,
+    "thickness_ratio_bounds": [
+      0.85,
+      1.15
+    ],
+    "curvature_dev_max_deg": 5.0,
+    "continuity_healed_target": true,
+    "min_ringing_reduction_pct": 30.0
+  }
+}

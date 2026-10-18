@@ -1,0 +1,79 @@
+{
+  "version": "0.1.3",
+  "benchmark_name": "Star_Detection_Classification_MultiScale",
+  "timestamp": "2026-10-17 13:39:52",
+  "synthetic_ground_truth_benchmark": {
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "detection_time_ms": 96.56,
+    "total_candidates": 178,
+    "class_distribution": {
+      "point_source": 34,
+      "extended_source": 12,
+      "filament_structure": 132
+    },
+    "metrics": {
+      "precision_pct": 97.06,
+      "recall_pct": 76.74,
+      "f1_score": 0.8571,
+      "mean_centroid_error_px": 0.145,
+      "max_centroid_error_px": 1.367,
+      "mean_flux_error_pct": 5.76
+    },
+    "stratified_by_magnitude": {
+      "bright": {
+        "total": 7,
+        "recovered": 6,
+        "recall_pct": 85.71
+      },
+      "medium": {
+        "total": 24,
+        "recovered": 16,
+        "recall_pct": 66.67
+      },
+      "faint": {
+        "total": 12,
+        "recovered": 11,
+        "recall_pct": 91.67
+      }
+    },
+    "stratified_by_environment": {
+      "clean_isolated": {
+        "total": 20,
+        "recovered": 20,
+        "recall_pct": 100.0
+      },
+      "close_binary": {
+        "total": 6,
+        "recovered": 1,
+        "recall_pct": 16.67
+      },
+      "crowded_cluster": {
+        "total": 12,
+        "recovered": 7,
+        "recall_pct": 58.33
+      },
+      "embedded_nebula": {
+        "total": 5,
+        "recovered": 5,
+        "recall_pct": 100.0
+      }
+    }
+  },
+  "real_artistic_image_human_annotated_evaluation": {
+    "image": "samples/astronomical/deepzoom_astronomy_test.png",
+    "resolution": [
+      682,
+      1024
+    ],
+    "detection_time_ms": 74.79,
+    "total_raw_candidates": 800,
+    "classified_point_sources": 345,
+    "human_annotated_stars_count": 15,
+    "human_annotated_recovered": 15,
+    "human_annotated_recall_pct": 100.0,
+    "methodology_disclaimer": "Ground-truth verified strictly against human-annotated stellar coordinates. Precision not extrapolated across unverified AI-generated regions."
+  }
+}

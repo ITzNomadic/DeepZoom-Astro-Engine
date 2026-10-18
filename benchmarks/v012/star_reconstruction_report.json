@@ -1,0 +1,122 @@
+{
+  "suite": "StarPreserve_V0.1.2_Controlled_Defect_Injection",
+  "timestamp": "2026-10-17 13:24:08",
+  "expected_flux": 8000.0,
+  "sky_background": 25.0,
+  "defects_evaluated": 7,
+  "crops_saved_directory": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\crops\\star_defects",
+  "results": [
+    {
+      "defect_name": "Defect_A_Small_Drift_0.5px",
+      "description": "Subpixel drift of 0.5 pixels in X",
+      "metrics": {
+        "centroid_drift_before_px": 0.5,
+        "centroid_drift_after_px": 0.004,
+        "flux_error_before_pct": 4.33,
+        "flux_error_after_pct": 5.53,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 35.2,
+        "psnr_after_db": 58.57,
+        "psnr_gain_db": 23.37
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "defect_name": "Defect_B_Moderate_Drift_1.2px",
+      "description": "Subpixel drift of 1.2 pixels diagonally (+0.8 px X, -0.9 px Y)",
+      "metrics": {
+        "centroid_drift_before_px": 1.205,
+        "centroid_drift_after_px": 0.014,
+        "flux_error_before_pct": 4.4,
+        "flux_error_after_pct": 5.7,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 27.86,
+        "psnr_after_db": 58.4,
+        "psnr_gain_db": 30.54
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "defect_name": "Defect_C_Negative_Ringing_Moat",
+      "description": "Artificial Gibbs ringing moat dipping 22 levels below local background",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 15.83,
+        "flux_error_after_pct": 16.32,
+        "min_intensity_before": 8.36,
+        "min_intensity_after": 24.0,
+        "psnr_before_db": 34.78,
+        "psnr_after_db": 40.34,
+        "psnr_gain_db": 5.55
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "defect_name": "Defect_D_Split_Duplicated_Core",
+      "description": "Asymmetric core splitting / artificial elongation",
+      "metrics": {
+        "centroid_drift_before_px": 0.292,
+        "centroid_drift_after_px": 0.002,
+        "flux_error_before_pct": 7.97,
+        "flux_error_after_pct": 9.09,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 35.86,
+        "psnr_after_db": 37.22,
+        "psnr_gain_db": 1.36
+      },
+      "status": "IMPROVED"
+    },
+    {
+      "defect_name": "Defect_E_Elongated_Deformation",
+      "description": "Neural elongation along one axis (ellipticity = 0.60)",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 1.79,
+        "flux_error_after_pct": 3.1,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 27.72,
+        "psnr_after_db": 27.72,
+        "psnr_gain_db": 0.0
+      },
+      "status": "PRESERVED"
+    },
+    {
+      "defect_name": "Defect_F_Flux_Deficit_30pct",
+      "description": "30% flux deficit caused by over-sharpening",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 30.85,
+        "flux_error_after_pct": 31.87,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 32.65,
+        "psnr_after_db": 32.65,
+        "psnr_gain_db": 0.0
+      },
+      "status": "PRESERVED"
+    },
+    {
+      "defect_name": "Control_G_Healthy_Star",
+      "description": "Healthy point source without defects (tests zero regression)",
+      "metrics": {
+        "centroid_drift_before_px": 0.0,
+        "centroid_drift_after_px": 0.0,
+        "flux_error_before_pct": 4.54,
+        "flux_error_after_pct": 5.53,
+        "min_intensity_before": 25.0,
+        "min_intensity_after": 25.0,
+        "psnr_before_db": 148.13,
+        "psnr_after_db": 148.13,
+        "psnr_gain_db": 0.0
+      },
+      "status": "PRESERVED"
+    }
+  ]
+}

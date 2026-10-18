@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# C extensions & OS files
+*.so
+*.dylib
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Heavy distribution archives (exceeding GitHub 100MB limit)
+dist/
+*.zip
+*.tar.gz
+*.7z
+
+# Local backups and scratch work
+backup/
+scratch/
+
+# Intermediate ablation scene tiles and temp caches
+output/baseline/
+output/experimental/v014_test/
+output/experimental/v014/test_baseline_crop.png
+output/experimental/v014/ablation_scenes/
+output/**/*.baseline.png
+output/**/*.ultrasharp.png
+
+# Sensitive files / credentials (defense in depth)
+*.env
+*.env.*
+*.secret
+*.key
+*.pem
+*.token
+credentials.json

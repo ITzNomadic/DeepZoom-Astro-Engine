@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-10-17 13:39:32",
+  "hardware": "AMD Radeon RX 5700 XT (GPU 0)",
+  "test1_crop": {
+    "dimensions": [
+      2048,
+      2048
+    ],
+    "exact_match": true,
+    "mean_abs_diff": 0.0,
+    "max_diff": 0,
+    "matching_pixels_pct": 100.0,
+    "hash_match": true,
+    "output_hash": "1e9506777b8d33a2b76dd5d3a4670db3f15fc83905419410dfcf6c0403a60225",
+    "reference_hash": "1e9506777b8d33a2b76dd5d3a4670db3f15fc83905419410dfcf6c0403a60225"
+  },
+  "test2_full_8k": {
+    "dimensions": [
+      4608,
+      8192
+    ],
+    "exact_match": true,
+    "mean_abs_diff": 0.0,
+    "max_diff": 0,
+    "matching_pixels_pct": 100.0,
+    "hash_match": true,
+    "output_hash": "5a3d71a38e43e40349360b42b6dc7720e8387808ea6a8c2a33ee51be347278bd",
+    "reference_hash": "5a3d71a38e43e40349360b42b6dc7720e8387808ea6a8c2a33ee51be347278bd"
+  }
+}

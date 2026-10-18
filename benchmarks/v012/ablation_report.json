@@ -1,0 +1,211 @@
+{
+  "version": "0.1.2",
+  "description": "DeepZoom Astro Engine V0.1.2 Layer Ablation Benchmark on 4K Master",
+  "master_dimensions": [
+    2728,
+    4096
+  ],
+  "effective_scale": 4.0,
+  "modes": {
+    "baseline": {
+      "file_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\astronomy_test_4k_v012_baseline.png",
+      "sha256": "1186dd0625768e9574171af5640ed10b1214221c41f769b6f872e4e9fea7bc9c",
+      "psnr_db": 100.0,
+      "ssim": 1.0,
+      "fusion_stats": {
+        "mode": "baseline",
+        "blend_weight": 0.0,
+        "candidate_pixels": 0,
+        "candidate_pct": 0.0,
+        "effectively_modified_pixels": 0,
+        "effectively_modified_pct": 0.0,
+        "mean_absolute_difference": 0.0,
+        "max_absolute_difference": 0.0,
+        "p50_difference": 0.0,
+        "p90_difference": 0.0,
+        "p99_difference": 0.0,
+        "active_layers": [],
+        "per_layer_stats": {}
+      },
+      "validation_delta": {
+        "mean_absolute_difference": 0.0,
+        "max_absolute_difference": 0.0,
+        "modified_pixel_count": 0,
+        "modified_pixel_pct": 0.0,
+        "p50_difference": 0.0,
+        "p90_difference": 0.0,
+        "p99_difference": 0.0
+      }
+    },
+    "star_preserve_only": {
+      "file_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\astronomy_test_4k_v012_star_preserve_only.png",
+      "sha256": "97c91ddbdf8164921cc04dcbcffa6f8349b09887066d82ea837545877d0fe07e",
+      "psnr_db": 44.76,
+      "ssim": 0.9993,
+      "fusion_stats": {
+        "mode": "star_preserve_only",
+        "blend_weight": 0.5,
+        "candidate_pixels": 91131,
+        "candidate_pct": 0.816,
+        "effectively_modified_pixels": 45577,
+        "effectively_modified_pct": 0.408,
+        "mean_absolute_difference": 0.0492,
+        "max_absolute_difference": 115.0,
+        "p50_difference": 5.0,
+        "p90_difference": 42.0,
+        "p99_difference": 94.0,
+        "active_layers": [
+          "StarPreserve"
+        ],
+        "per_layer_stats": {
+          "StarPreserve": {
+            "candidate_pixels": 91131,
+            "modified_pixels": 45577,
+            "mean_abs_diff": 0.0495,
+            "max_abs_diff": 114.62
+          }
+        }
+      },
+      "validation_delta": {
+        "mean_absolute_difference": 0.0492,
+        "max_absolute_difference": 115.0,
+        "modified_pixel_count": 45577,
+        "modified_pixel_pct": 0.408,
+        "p50_difference": 5.0,
+        "p90_difference": 42.0,
+        "p99_difference": 94.0
+      }
+    },
+    "filament_guard_only": {
+      "file_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\astronomy_test_4k_v012_filament_guard_only.png",
+      "sha256": "75401800d8b660b96cf87e5635444a1c7f9204456714d4deca154ece66c137a4",
+      "psnr_db": 43.61,
+      "ssim": 0.9961,
+      "fusion_stats": {
+        "mode": "filament_guard_only",
+        "blend_weight": 0.5,
+        "candidate_pixels": 3030212,
+        "candidate_pct": 27.119,
+        "effectively_modified_pixels": 912250,
+        "effectively_modified_pct": 8.164,
+        "mean_absolute_difference": 0.2924,
+        "max_absolute_difference": 72.0,
+        "p50_difference": 2.0,
+        "p90_difference": 11.0,
+        "p99_difference": 25.0,
+        "active_layers": [
+          "FilamentGuard"
+        ],
+        "per_layer_stats": {
+          "FilamentGuard": {
+            "candidate_pixels": 3030212,
+            "modified_pixels": 912251,
+            "mean_abs_diff": 0.2972,
+            "max_abs_diff": 71.52
+          }
+        }
+      },
+      "validation_delta": {
+        "mean_absolute_difference": 0.2924,
+        "max_absolute_difference": 72.0,
+        "modified_pixel_count": 912250,
+        "modified_pixel_pct": 8.164,
+        "p50_difference": 2.0,
+        "p90_difference": 11.0,
+        "p99_difference": 25.0
+      }
+    },
+    "dark_sky_only": {
+      "file_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\astronomy_test_4k_v012_dark_sky_only.png",
+      "sha256": "475c44bde536a1d5435bf25b10525e08cc4f510210784eae1c6affa8dbf851d2",
+      "psnr_db": 61.14,
+      "ssim": 0.9997,
+      "fusion_stats": {
+        "mode": "dark_sky_only",
+        "blend_weight": 0.5,
+        "candidate_pixels": 2378839,
+        "candidate_pct": 21.289,
+        "effectively_modified_pixels": 873165,
+        "effectively_modified_pct": 7.814,
+        "mean_absolute_difference": 0.0403,
+        "max_absolute_difference": 14.0,
+        "p50_difference": 1.0,
+        "p90_difference": 1.0,
+        "p99_difference": 3.0,
+        "active_layers": [
+          "DarkSky"
+        ],
+        "per_layer_stats": {
+          "DarkSky": {
+            "candidate_pixels": 2378839,
+            "modified_pixels": 1316027,
+            "mean_abs_diff": 0.0404,
+            "max_abs_diff": 14.0
+          }
+        }
+      },
+      "validation_delta": {
+        "mean_absolute_difference": 0.0403,
+        "max_absolute_difference": 14.0,
+        "modified_pixel_count": 873165,
+        "modified_pixel_pct": 7.814,
+        "p50_difference": 1.0,
+        "p90_difference": 1.0,
+        "p99_difference": 3.0
+      }
+    },
+    "all_layers": {
+      "file_path": "E:\\Decalga\\DeepZoomStudio\\output\\experimental\\v012\\astronomy_test_4k_v012_all_layers.png",
+      "sha256": "cb487031a0c10c0da8e81bbf3f36bae1cf37edfad463c33955dedaed164a1b76",
+      "psnr_db": 41.06,
+      "ssim": 0.9951,
+      "fusion_stats": {
+        "mode": "all_layers",
+        "blend_weight": 0.5,
+        "candidate_pixels": 5465323,
+        "candidate_pct": 48.912,
+        "effectively_modified_pixels": 1825594,
+        "effectively_modified_pct": 16.338,
+        "mean_absolute_difference": 0.3815,
+        "max_absolute_difference": 123.0,
+        "p50_difference": 1.0,
+        "p90_difference": 7.0,
+        "p99_difference": 25.0,
+        "active_layers": [
+          "StarPreserve",
+          "FilamentGuard",
+          "DarkSky"
+        ],
+        "per_layer_stats": {
+          "StarPreserve": {
+            "candidate_pixels": 91131,
+            "modified_pixels": 45577,
+            "mean_abs_diff": 0.0495,
+            "max_abs_diff": 114.62
+          },
+          "FilamentGuard": {
+            "candidate_pixels": 3030212,
+            "modified_pixels": 912251,
+            "mean_abs_diff": 0.2972,
+            "max_abs_diff": 71.52
+          },
+          "DarkSky": {
+            "candidate_pixels": 2378839,
+            "modified_pixels": 1316027,
+            "mean_abs_diff": 0.0404,
+            "max_abs_diff": 14.0
+          }
+        }
+      },
+      "validation_delta": {
+        "mean_absolute_difference": 0.3815,
+        "max_absolute_difference": 123.0,
+        "modified_pixel_count": 1825594,
+        "modified_pixel_pct": 16.338,
+        "p50_difference": 1.0,
+        "p90_difference": 7.0,
+        "p99_difference": 25.0
+      }
+    }
+  }
+}

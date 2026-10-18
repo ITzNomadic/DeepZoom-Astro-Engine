@@ -1,0 +1,806 @@
+{
+  "engine_version": "DeepZoom Astro Engine V0.1.1",
+  "timestamp": "2026-10-17 11:10:57",
+  "hardware": {
+    "gpu": "AMD Radeon RX 5700 XT (8 GB VRAM, Vulkan device 0)",
+    "cpu": "AMD Ryzen 5 9600X (6C/12T)",
+    "ram": "16 GB RAM DDR5",
+    "os": "Windows 11"
+  },
+  "audit_fixes_implemented": [
+    "Local Gaussian-windowed SSIM (11x11, sigma=1.5, reflect padding)",
+    "1-to-1 Hungarian star matching with strict distance gating (no zero drift bugs)",
+    "Star classification: Point Sources vs Extended Sources vs Ambiguous",
+    "Point source local PSF reconstruction: anti-ringing, centering, flux conservation",
+    "Hessian eigenvector decomposition: tangential smoothing along v2, orthogonal anti-ringing along v1",
+    "Elimination of arbitrary brightness multipliers in FilamentGuard",
+    "Structure-aware vacuum stabilization in DarkSky: faint nebulosity never clipped",
+    "Adaptive Otsu shadow basin segmentation in GeometryLock: handles I ~ 35-45 shadow floors",
+    "Control-referenced tile seam analysis",
+    "High-precision stage profiler separating GPU inference from CPU post-processing and I/O"
+  ],
+  "ablation_study_synthetic": {
+    "baseline": {
+      "mode": "baseline",
+      "psnr_vs_ground_truth_db": 37.2,
+      "ssim_y_vs_ground_truth": 0.9401,
+      "ssim_rgb_vs_ground_truth": 0.9408,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.6381,
+          "total_pipeline_time_seconds": 3.6394
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.6381,
+          "cpu_astro_postprocessing_seconds": 0.0,
+          "disk_io_seconds": 0.0,
+          "scientific_validation_seconds": 0.0,
+          "total_wall_clock_seconds": 3.6394,
+          "gpu_share_pct": 100.0,
+          "cpu_post_share_pct": 0.0
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.74
+    },
+    "star_preserve_only": {
+      "mode": "star_preserve_only",
+      "psnr_vs_ground_truth_db": 37.2,
+      "ssim_y_vs_ground_truth": 0.9401,
+      "ssim_rgb_vs_ground_truth": 0.9408,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.5526,
+          "io_read_seconds": 0.0004,
+          "preprocessing_seconds": 0.0266,
+          "star_preserve_seconds": 0.2684,
+          "filament_guard_seconds": 0.8062,
+          "dark_sky_seconds": 0.332,
+          "geometry_lock_seconds": 0.0451,
+          "adaptive_fusion_seconds": 0.1465,
+          "io_write_seconds": 0.2232,
+          "validation_seconds": 2.0308,
+          "total_pipeline_time_seconds": 7.4326
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.5526,
+          "cpu_astro_postprocessing_seconds": 1.5531,
+          "disk_io_seconds": 0.2236,
+          "scientific_validation_seconds": 2.0308,
+          "total_wall_clock_seconds": 7.4326,
+          "gpu_share_pct": 47.8,
+          "cpu_post_share_pct": 20.9
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.72,
+      "star_preserve": {
+        "input_stars_detected": 600,
+        "output_stars_detected": 1809,
+        "matched_stars_count": 186,
+        "precision": 0.1028,
+        "recall": 0.31,
+        "spurious_stars_count": 1623,
+        "mean_centroid_drift_px": 1.861,
+        "median_centroid_drift_px": 1.829,
+        "max_centroid_drift_px": 5.991,
+        "p75_centroid_drift_px": 2.124,
+        "p90_centroid_drift_px": 2.529,
+        "p95_centroid_drift_px": 3.516,
+        "mean_flux_preservation_ratio": 0.084,
+        "mean_fwhm_ratio": 0.266,
+        "drift_pass": true,
+        "status": "MATCHED_SUCCESS",
+        "reconstruction_meta": {
+          "reconstructed_stars": 13
+        }
+      },
+      "filament_guard": {
+        "filament_coverage_pct": 4.82,
+        "mean_filament_coherence": 0.879,
+        "ringing_index": 0.5841,
+        "ringing_detected": true,
+        "repair_meta": {
+          "repaired_pixels": 201326,
+          "mean_repair_weight": 0.429
+        }
+      },
+      "dark_sky": {
+        "background_median": 10.0,
+        "background_noise_std": 1.58,
+        "flat_vacuum_coverage_pct": 43.35,
+        "faint_structure_coverage_pct": 0.11,
+        "banding_index": 3.835,
+        "clean_gradient_pass": false,
+        "stabilization_meta": {
+          "stabilized_pixels": 1818104,
+          "faint_structures_protected": true
+        }
+      },
+      "geometry_lock": {
+        "expected_scale": 4.0,
+        "measured_scale": 3.716,
+        "scale_error_pct": 7.112,
+        "centroid_drift_px": 55.23,
+        "circularity_in": 0.033,
+        "circularity_out": 0.015,
+        "geometric_lock_passed": false
+      },
+      "fusion_stats": {
+        "mode": "star_preserve_only",
+        "modified_pixel_count": 19,
+        "modified_pixel_pct": 0.0,
+        "mean_absolute_difference": 0.0,
+        "max_absolute_difference": 3.0,
+        "active_layers": [
+          "StarPreserve"
+        ]
+      },
+      "validation_vs_baseline": {
+        "psnr_db": 97.86,
+        "ssim": 1.0,
+        "ssim_rgb": 1.0,
+        "ssim_details": {
+          "ssim_y": 1.0,
+          "ssim_rgb": 1.0,
+          "window_size": 11,
+          "sigma": 1.5,
+          "c1": 6.5025,
+          "c2": 58.5225,
+          "data_range": 255.0,
+          "boundary_mode": "reflect",
+          "evaluation": "valid_interior_crop"
+        },
+        "tiling_seams": {
+          "tested_tile_stride_px": 1024,
+          "total_seams_inspected": 2,
+          "mean_seam_excess": -0.011,
+          "max_seam_excess": -0.006,
+          "mean_control_baseline": 0.196,
+          "relative_seam_ratio": 1.0,
+          "seam_blending_passed": true
+        },
+        "spatial_delta": {
+          "mean_absolute_difference": 0.0,
+          "max_absolute_difference": 3.0,
+          "modified_pixel_count": 53,
+          "modified_pixel_pct": 0.0
+        },
+        "quality_grade": "A+"
+      }
+    },
+    "filament_guard_only": {
+      "mode": "filament_guard_only",
+      "psnr_vs_ground_truth_db": 37.22,
+      "ssim_y_vs_ground_truth": 0.9401,
+      "ssim_rgb_vs_ground_truth": 0.9408,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.466,
+          "io_read_seconds": 0.0003,
+          "preprocessing_seconds": 0.0257,
+          "star_preserve_seconds": 0.2516,
+          "filament_guard_seconds": 0.8003,
+          "dark_sky_seconds": 0.3336,
+          "geometry_lock_seconds": 0.0435,
+          "adaptive_fusion_seconds": 0.1444,
+          "io_write_seconds": 0.2135,
+          "validation_seconds": 2.008,
+          "total_pipeline_time_seconds": 7.2877
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.466,
+          "cpu_astro_postprocessing_seconds": 1.5299,
+          "disk_io_seconds": 0.2138,
+          "scientific_validation_seconds": 2.008,
+          "total_wall_clock_seconds": 7.2877,
+          "gpu_share_pct": 47.6,
+          "cpu_post_share_pct": 21.0
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.72,
+      "star_preserve": {
+        "input_stars_detected": 600,
+        "output_stars_detected": 1809,
+        "matched_stars_count": 186,
+        "precision": 0.1028,
+        "recall": 0.31,
+        "spurious_stars_count": 1623,
+        "mean_centroid_drift_px": 1.861,
+        "median_centroid_drift_px": 1.829,
+        "max_centroid_drift_px": 5.991,
+        "p75_centroid_drift_px": 2.124,
+        "p90_centroid_drift_px": 2.529,
+        "p95_centroid_drift_px": 3.516,
+        "mean_flux_preservation_ratio": 0.084,
+        "mean_fwhm_ratio": 0.266,
+        "drift_pass": true,
+        "status": "MATCHED_SUCCESS",
+        "reconstruction_meta": {
+          "reconstructed_stars": 13
+        }
+      },
+      "filament_guard": {
+        "filament_coverage_pct": 4.82,
+        "mean_filament_coherence": 0.879,
+        "ringing_index": 0.5841,
+        "ringing_detected": true,
+        "repair_meta": {
+          "repaired_pixels": 201326,
+          "mean_repair_weight": 0.429
+        }
+      },
+      "dark_sky": {
+        "background_median": 10.0,
+        "background_noise_std": 1.58,
+        "flat_vacuum_coverage_pct": 43.35,
+        "faint_structure_coverage_pct": 0.11,
+        "banding_index": 3.835,
+        "clean_gradient_pass": false,
+        "stabilization_meta": {
+          "stabilized_pixels": 1818104,
+          "faint_structures_protected": true
+        }
+      },
+      "geometry_lock": {
+        "expected_scale": 4.0,
+        "measured_scale": 3.716,
+        "scale_error_pct": 7.112,
+        "centroid_drift_px": 55.23,
+        "circularity_in": 0.033,
+        "circularity_out": 0.015,
+        "geometric_lock_passed": false
+      },
+      "fusion_stats": {
+        "mode": "filament_guard_only",
+        "modified_pixel_count": 21146,
+        "modified_pixel_pct": 0.504,
+        "mean_absolute_difference": 0.004,
+        "max_absolute_difference": 11.0,
+        "active_layers": [
+          "FilamentGuard"
+        ]
+      },
+      "validation_vs_baseline": {
+        "psnr_db": 70.79,
+        "ssim": 1.0,
+        "ssim_rgb": 1.0,
+        "ssim_details": {
+          "ssim_y": 1.0,
+          "ssim_rgb": 1.0,
+          "window_size": 11,
+          "sigma": 1.5,
+          "c1": 6.5025,
+          "c2": 58.5225,
+          "data_range": 255.0,
+          "boundary_mode": "reflect",
+          "evaluation": "valid_interior_crop"
+        },
+        "tiling_seams": {
+          "tested_tile_stride_px": 1024,
+          "total_seams_inspected": 2,
+          "mean_seam_excess": -0.01,
+          "max_seam_excess": -0.004,
+          "mean_control_baseline": 0.198,
+          "relative_seam_ratio": 1.0,
+          "seam_blending_passed": true
+        },
+        "spatial_delta": {
+          "mean_absolute_difference": 0.004,
+          "max_absolute_difference": 11.0,
+          "modified_pixel_count": 43921,
+          "modified_pixel_pct": 0.35
+        },
+        "quality_grade": "A+"
+      }
+    },
+    "dark_sky_only": {
+      "mode": "dark_sky_only",
+      "psnr_vs_ground_truth_db": 37.37,
+      "ssim_y_vs_ground_truth": 0.943,
+      "ssim_rgb_vs_ground_truth": 0.9437,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.4473,
+          "io_read_seconds": 0.0003,
+          "preprocessing_seconds": 0.0259,
+          "star_preserve_seconds": 0.253,
+          "filament_guard_seconds": 0.8267,
+          "dark_sky_seconds": 0.331,
+          "geometry_lock_seconds": 0.0416,
+          "adaptive_fusion_seconds": 0.1465,
+          "io_write_seconds": 0.1956,
+          "validation_seconds": 2.0325,
+          "total_pipeline_time_seconds": 7.3013
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.4473,
+          "cpu_astro_postprocessing_seconds": 1.5572,
+          "disk_io_seconds": 0.1959,
+          "scientific_validation_seconds": 2.0325,
+          "total_wall_clock_seconds": 7.3013,
+          "gpu_share_pct": 47.2,
+          "cpu_post_share_pct": 21.3
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.56,
+      "star_preserve": {
+        "input_stars_detected": 600,
+        "output_stars_detected": 1809,
+        "matched_stars_count": 186,
+        "precision": 0.1028,
+        "recall": 0.31,
+        "spurious_stars_count": 1623,
+        "mean_centroid_drift_px": 1.861,
+        "median_centroid_drift_px": 1.829,
+        "max_centroid_drift_px": 5.991,
+        "p75_centroid_drift_px": 2.124,
+        "p90_centroid_drift_px": 2.529,
+        "p95_centroid_drift_px": 3.516,
+        "mean_flux_preservation_ratio": 0.084,
+        "mean_fwhm_ratio": 0.266,
+        "drift_pass": true,
+        "status": "MATCHED_SUCCESS",
+        "reconstruction_meta": {
+          "reconstructed_stars": 13
+        }
+      },
+      "filament_guard": {
+        "filament_coverage_pct": 4.82,
+        "mean_filament_coherence": 0.879,
+        "ringing_index": 0.5841,
+        "ringing_detected": true,
+        "repair_meta": {
+          "repaired_pixels": 201326,
+          "mean_repair_weight": 0.429
+        }
+      },
+      "dark_sky": {
+        "background_median": 10.0,
+        "background_noise_std": 1.58,
+        "flat_vacuum_coverage_pct": 43.35,
+        "faint_structure_coverage_pct": 0.11,
+        "banding_index": 3.835,
+        "clean_gradient_pass": false,
+        "stabilization_meta": {
+          "stabilized_pixels": 1818104,
+          "faint_structures_protected": true
+        }
+      },
+      "geometry_lock": {
+        "expected_scale": 4.0,
+        "measured_scale": 3.716,
+        "scale_error_pct": 7.112,
+        "centroid_drift_px": 55.23,
+        "circularity_in": 0.033,
+        "circularity_out": 0.015,
+        "geometric_lock_passed": false
+      },
+      "fusion_stats": {
+        "mode": "dark_sky_only",
+        "modified_pixel_count": 813288,
+        "modified_pixel_pct": 19.39,
+        "mean_absolute_difference": 0.0764,
+        "max_absolute_difference": 2.0,
+        "active_layers": [
+          "DarkSky"
+        ]
+      },
+      "validation_vs_baseline": {
+        "psnr_db": 59.3,
+        "ssim": 0.9997,
+        "ssim_rgb": 0.9993,
+        "ssim_details": {
+          "ssim_y": 0.9997,
+          "ssim_rgb": 0.9993,
+          "window_size": 11,
+          "sigma": 1.5,
+          "c1": 6.5025,
+          "c2": 58.5225,
+          "data_range": 255.0,
+          "boundary_mode": "reflect",
+          "evaluation": "valid_interior_crop"
+        },
+        "tiling_seams": {
+          "tested_tile_stride_px": 1024,
+          "total_seams_inspected": 2,
+          "mean_seam_excess": -0.013,
+          "max_seam_excess": -0.009,
+          "mean_control_baseline": 0.179,
+          "relative_seam_ratio": 1.0,
+          "seam_blending_passed": true
+        },
+        "spatial_delta": {
+          "mean_absolute_difference": 0.0764,
+          "max_absolute_difference": 2.0,
+          "modified_pixel_count": 960912,
+          "modified_pixel_pct": 7.64
+        },
+        "quality_grade": "A+"
+      }
+    },
+    "star_plus_filament": {
+      "mode": "star_plus_filament",
+      "psnr_vs_ground_truth_db": 37.22,
+      "ssim_y_vs_ground_truth": 0.9401,
+      "ssim_rgb_vs_ground_truth": 0.9408,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.4429,
+          "io_read_seconds": 0.0003,
+          "preprocessing_seconds": 0.0263,
+          "star_preserve_seconds": 0.2559,
+          "filament_guard_seconds": 0.7998,
+          "dark_sky_seconds": 0.3337,
+          "geometry_lock_seconds": 0.0434,
+          "adaptive_fusion_seconds": 0.1892,
+          "io_write_seconds": 0.2153,
+          "validation_seconds": 2.0137,
+          "total_pipeline_time_seconds": 7.3213
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.4429,
+          "cpu_astro_postprocessing_seconds": 1.5786,
+          "disk_io_seconds": 0.2156,
+          "scientific_validation_seconds": 2.0137,
+          "total_wall_clock_seconds": 7.3213,
+          "gpu_share_pct": 47.0,
+          "cpu_post_share_pct": 21.6
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.72,
+      "star_preserve": {
+        "input_stars_detected": 600,
+        "output_stars_detected": 1809,
+        "matched_stars_count": 186,
+        "precision": 0.1028,
+        "recall": 0.31,
+        "spurious_stars_count": 1623,
+        "mean_centroid_drift_px": 1.861,
+        "median_centroid_drift_px": 1.829,
+        "max_centroid_drift_px": 5.991,
+        "p75_centroid_drift_px": 2.124,
+        "p90_centroid_drift_px": 2.529,
+        "p95_centroid_drift_px": 3.516,
+        "mean_flux_preservation_ratio": 0.084,
+        "mean_fwhm_ratio": 0.266,
+        "drift_pass": true,
+        "status": "MATCHED_SUCCESS",
+        "reconstruction_meta": {
+          "reconstructed_stars": 13
+        }
+      },
+      "filament_guard": {
+        "filament_coverage_pct": 4.82,
+        "mean_filament_coherence": 0.879,
+        "ringing_index": 0.5841,
+        "ringing_detected": true,
+        "repair_meta": {
+          "repaired_pixels": 201326,
+          "mean_repair_weight": 0.429
+        }
+      },
+      "dark_sky": {
+        "background_median": 10.0,
+        "background_noise_std": 1.58,
+        "flat_vacuum_coverage_pct": 43.35,
+        "faint_structure_coverage_pct": 0.11,
+        "banding_index": 3.835,
+        "clean_gradient_pass": false,
+        "stabilization_meta": {
+          "stabilized_pixels": 1818104,
+          "faint_structures_protected": true
+        }
+      },
+      "geometry_lock": {
+        "expected_scale": 4.0,
+        "measured_scale": 3.716,
+        "scale_error_pct": 7.112,
+        "centroid_drift_px": 55.23,
+        "circularity_in": 0.033,
+        "circularity_out": 0.015,
+        "geometric_lock_passed": false
+      },
+      "fusion_stats": {
+        "mode": "star_plus_filament",
+        "modified_pixel_count": 21165,
+        "modified_pixel_pct": 0.505,
+        "mean_absolute_difference": 0.004,
+        "max_absolute_difference": 11.0,
+        "active_layers": [
+          "StarPreserve",
+          "FilamentGuard"
+        ]
+      },
+      "validation_vs_baseline": {
+        "psnr_db": 70.78,
+        "ssim": 1.0,
+        "ssim_rgb": 1.0,
+        "ssim_details": {
+          "ssim_y": 1.0,
+          "ssim_rgb": 1.0,
+          "window_size": 11,
+          "sigma": 1.5,
+          "c1": 6.5025,
+          "c2": 58.5225,
+          "data_range": 255.0,
+          "boundary_mode": "reflect",
+          "evaluation": "valid_interior_crop"
+        },
+        "tiling_seams": {
+          "tested_tile_stride_px": 1024,
+          "total_seams_inspected": 2,
+          "mean_seam_excess": -0.01,
+          "max_seam_excess": -0.004,
+          "mean_control_baseline": 0.198,
+          "relative_seam_ratio": 1.0,
+          "seam_blending_passed": true
+        },
+        "spatial_delta": {
+          "mean_absolute_difference": 0.004,
+          "max_absolute_difference": 11.0,
+          "modified_pixel_count": 43974,
+          "modified_pixel_pct": 0.35
+        },
+        "quality_grade": "A+"
+      }
+    },
+    "all_layers": {
+      "mode": "all_layers",
+      "psnr_vs_ground_truth_db": 37.39,
+      "ssim_y_vs_ground_truth": 0.9431,
+      "ssim_rgb_vs_ground_truth": 0.9437,
+      "profiling": {
+        "detailed_stages": {
+          "pure_ncnn_inference_seconds": 3.4661,
+          "io_read_seconds": 0.0003,
+          "preprocessing_seconds": 0.0257,
+          "star_preserve_seconds": 0.2489,
+          "filament_guard_seconds": 0.7985,
+          "dark_sky_seconds": 0.3676,
+          "geometry_lock_seconds": 0.0424,
+          "adaptive_fusion_seconds": 0.2355,
+          "io_write_seconds": 0.1947,
+          "validation_seconds": 1.9923,
+          "total_pipeline_time_seconds": 7.3726
+        },
+        "breakdown": {
+          "gpu_ncnn_inference_seconds": 3.4661,
+          "cpu_astro_postprocessing_seconds": 1.6505,
+          "disk_io_seconds": 0.195,
+          "scientific_validation_seconds": 1.9923,
+          "total_wall_clock_seconds": 7.3726,
+          "gpu_share_pct": 47.0,
+          "cpu_post_share_pct": 22.4
+        }
+      },
+      "output_dimensions": "2048x2048",
+      "output_size_mb": 1.56,
+      "star_preserve": {
+        "input_stars_detected": 600,
+        "output_stars_detected": 1809,
+        "matched_stars_count": 186,
+        "precision": 0.1028,
+        "recall": 0.31,
+        "spurious_stars_count": 1623,
+        "mean_centroid_drift_px": 1.861,
+        "median_centroid_drift_px": 1.829,
+        "max_centroid_drift_px": 5.991,
+        "p75_centroid_drift_px": 2.124,
+        "p90_centroid_drift_px": 2.529,
+        "p95_centroid_drift_px": 3.516,
+        "mean_flux_preservation_ratio": 0.084,
+        "mean_fwhm_ratio": 0.266,
+        "drift_pass": true,
+        "status": "MATCHED_SUCCESS",
+        "reconstruction_meta": {
+          "reconstructed_stars": 13
+        }
+      },
+      "filament_guard": {
+        "filament_coverage_pct": 4.82,
+        "mean_filament_coherence": 0.879,
+        "ringing_index": 0.5841,
+        "ringing_detected": true,
+        "repair_meta": {
+          "repaired_pixels": 201326,
+          "mean_repair_weight": 0.429
+        }
+      },
+      "dark_sky": {
+        "background_median": 10.0,
+        "background_noise_std": 1.58,
+        "flat_vacuum_coverage_pct": 43.35,
+        "faint_structure_coverage_pct": 0.11,
+        "banding_index": 3.835,
+        "clean_gradient_pass": false,
+        "stabilization_meta": {
+          "stabilized_pixels": 1818104,
+          "faint_structures_protected": true
+        }
+      },
+      "geometry_lock": {
+        "expected_scale": 4.0,
+        "measured_scale": 3.716,
+        "scale_error_pct": 7.112,
+        "centroid_drift_px": 55.23,
+        "circularity_in": 0.033,
+        "circularity_out": 0.015,
+        "geometric_lock_passed": false
+      },
+      "fusion_stats": {
+        "mode": "all_layers",
+        "modified_pixel_count": 839485,
+        "modified_pixel_pct": 20.015,
+        "mean_absolute_difference": 0.0817,
+        "max_absolute_difference": 11.0,
+        "active_layers": [
+          "StarPreserve",
+          "FilamentGuard",
+          "DarkSky"
+        ]
+      },
+      "validation_vs_baseline": {
+        "psnr_db": 58.93,
+        "ssim": 0.9997,
+        "ssim_rgb": 0.9993,
+        "ssim_details": {
+          "ssim_y": 0.9997,
+          "ssim_rgb": 0.9993,
+          "window_size": 11,
+          "sigma": 1.5,
+          "c1": 6.5025,
+          "c2": 58.5225,
+          "data_range": 255.0,
+          "boundary_mode": "reflect",
+          "evaluation": "valid_interior_crop"
+        },
+        "tiling_seams": {
+          "tested_tile_stride_px": 1024,
+          "total_seams_inspected": 2,
+          "mean_seam_excess": -0.012,
+          "max_seam_excess": -0.006,
+          "mean_control_baseline": 0.18,
+          "relative_seam_ratio": 1.0,
+          "seam_blending_passed": true
+        },
+        "spatial_delta": {
+          "mean_absolute_difference": 0.0817,
+          "max_absolute_difference": 11.0,
+          "modified_pixel_count": 1022110,
+          "modified_pixel_pct": 8.12
+        },
+        "quality_grade": "A+"
+      }
+    }
+  },
+  "real_astronomical_scene": {
+    "input_image": "deepzoom_astronomy_test.png",
+    "target_resolution": "2728x4096",
+    "megapixels": 11.17,
+    "size_mb": 15.28,
+    "profiling": {
+      "detailed_stages": {
+        "pure_ncnn_inference_seconds": 6.5634,
+        "io_read_seconds": 0.0004,
+        "preprocessing_seconds": 0.1228,
+        "star_preserve_seconds": 0.8985,
+        "filament_guard_seconds": 2.3027,
+        "dark_sky_seconds": 0.7797,
+        "geometry_lock_seconds": 0.1375,
+        "adaptive_fusion_seconds": 0.7022,
+        "io_write_seconds": 0.873,
+        "validation_seconds": 3.8056,
+        "total_pipeline_time_seconds": 16.1863
+      },
+      "breakdown": {
+        "gpu_ncnn_inference_seconds": 6.5634,
+        "cpu_astro_postprocessing_seconds": 4.6831,
+        "disk_io_seconds": 0.8734,
+        "scientific_validation_seconds": 3.8056,
+        "total_wall_clock_seconds": 16.1863,
+        "gpu_share_pct": 40.5,
+        "cpu_post_share_pct": 28.9
+      }
+    },
+    "star_preserve": {
+      "input_stars_detected": 666,
+      "output_stars_detected": 10656,
+      "matched_stars_count": 282,
+      "precision": 0.0265,
+      "recall": 0.4234,
+      "spurious_stars_count": 10374,
+      "mean_centroid_drift_px": 2.996,
+      "median_centroid_drift_px": 2.997,
+      "max_centroid_drift_px": 5.993,
+      "p75_centroid_drift_px": 4.097,
+      "p90_centroid_drift_px": 5.003,
+      "p95_centroid_drift_px": 5.447,
+      "mean_flux_preservation_ratio": 0.476,
+      "mean_fwhm_ratio": 0.216,
+      "drift_pass": true,
+      "status": "MATCHED_SUCCESS",
+      "reconstruction_meta": {
+        "reconstructed_stars": 282
+      }
+    },
+    "filament_guard": {
+      "filament_coverage_pct": 9.25,
+      "mean_filament_coherence": 0.889,
+      "ringing_index": 0.291,
+      "ringing_detected": true,
+      "repair_meta": {
+        "repaired_pixels": 1031386,
+        "mean_repair_weight": 0.314
+      }
+    },
+    "dark_sky": {
+      "background_median": 12.0,
+      "background_noise_std": 5.782,
+      "flat_vacuum_coverage_pct": 21.29,
+      "faint_structure_coverage_pct": 4.69,
+      "banding_index": 1.178,
+      "clean_gradient_pass": false,
+      "stabilization_meta": {
+        "stabilized_pixels": 2378839,
+        "faint_structures_protected": true
+      }
+    },
+    "geometry_lock": {
+      "expected_scale": 4.0,
+      "measured_scale": 3.442,
+      "scale_error_pct": 13.959,
+      "centroid_drift_px": 143.85,
+      "circularity_in": 0.005,
+      "circularity_out": 0.003,
+      "geometric_lock_passed": false
+    },
+    "fusion_stats": {
+      "mode": "all_layers",
+      "modified_pixel_count": 1272174,
+      "modified_pixel_pct": 11.385,
+      "mean_absolute_difference": 0.0748,
+      "max_absolute_difference": 19.0,
+      "active_layers": [
+        "StarPreserve",
+        "FilamentGuard",
+        "DarkSky"
+      ]
+    },
+    "validation_against_baseline": {
+      "psnr_db": 56.33,
+      "ssim": 0.9996,
+      "ssim_rgb": 0.9993,
+      "ssim_details": {
+        "ssim_y": 0.9996,
+        "ssim_rgb": 0.9993,
+        "window_size": 11,
+        "sigma": 1.5,
+        "c1": 6.5025,
+        "c2": 58.5225,
+        "data_range": 255.0,
+        "boundary_mode": "reflect",
+        "evaluation": "valid_interior_crop"
+      },
+      "tiling_seams": {
+        "tested_tile_stride_px": 1600,
+        "total_seams_inspected": 3,
+        "mean_seam_excess": 0.102,
+        "max_seam_excess": 0.146,
+        "mean_control_baseline": 4.602,
+        "relative_seam_ratio": 1.022,
+        "seam_blending_passed": true
+      },
+      "spatial_delta": {
+        "mean_absolute_difference": 0.0748,
+        "max_absolute_difference": 19.0,
+        "modified_pixel_count": 1993038,
+        "modified_pixel_pct": 5.95
+      },
+      "quality_grade": "A+"
+    }
+  }
+}
